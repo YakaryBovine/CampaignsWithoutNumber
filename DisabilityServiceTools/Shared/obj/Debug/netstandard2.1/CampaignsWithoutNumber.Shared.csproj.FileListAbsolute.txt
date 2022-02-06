@@ -1,0 +1,10 @@
+C:\Users\Zak\RiderProjects\CampaignsWithoutNumber\DisabilityServiceTools\Shared\bin\Debug\netstandard2.1\CampaignsWithoutNumber.Shared.deps.json
+C:\Users\Zak\RiderProjects\CampaignsWithoutNumber\DisabilityServiceTools\Shared\bin\Debug\netstandard2.1\CampaignsWithoutNumber.Shared.dll
+C:\Users\Zak\RiderProjects\CampaignsWithoutNumber\DisabilityServiceTools\Shared\bin\Debug\netstandard2.1\CampaignsWithoutNumber.Shared.pdb
+C:\Users\Zak\RiderProjects\CampaignsWithoutNumber\DisabilityServiceTools\Shared\obj\Debug\netstandard2.1\CampaignsWithoutNumber.Shared.csproj.AssemblyReference.cache
+C:\Users\Zak\RiderProjects\CampaignsWithoutNumber\DisabilityServiceTools\Shared\obj\Debug\netstandard2.1\CampaignsWithoutNumber.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Zak\RiderProjects\CampaignsWithoutNumber\DisabilityServiceTools\Shared\obj\Debug\netstandard2.1\CampaignsWithoutNumber.Shared.AssemblyInfoInputs.cache
+C:\Users\Zak\RiderProjects\CampaignsWithoutNumber\DisabilityServiceTools\Shared\obj\Debug\netstandard2.1\CampaignsWithoutNumber.Shared.AssemblyInfo.cs
+C:\Users\Zak\RiderProjects\CampaignsWithoutNumber\DisabilityServiceTools\Shared\obj\Debug\netstandard2.1\CampaignsWithoutNumber.Shared.csproj.CoreCompileInputs.cache
+C:\Users\Zak\RiderProjects\CampaignsWithoutNumber\DisabilityServiceTools\Shared\obj\Debug\netstandard2.1\CampaignsWithoutNumber.Shared.dll
+C:\Users\Zak\RiderProjects\CampaignsWithoutNumber\DisabilityServiceTools\Shared\obj\Debug\netstandard2.1\CampaignsWithoutNumber.Shared.pdb

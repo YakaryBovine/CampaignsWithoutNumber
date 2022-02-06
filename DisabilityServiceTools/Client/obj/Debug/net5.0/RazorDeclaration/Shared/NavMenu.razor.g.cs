@@ -63,20 +63,13 @@ using Microsoft.JSInterop;
 #nullable disable
 #nullable restore
 #line 8 "C:\Users\Zak\RiderProjects\CampaignsWithoutNumber\DisabilityServiceTools\Client\_Imports.razor"
-using DisabilityServiceTools.Client;
+using CampaignsWithoutNumber.Client.Shared;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 9 "C:\Users\Zak\RiderProjects\CampaignsWithoutNumber\DisabilityServiceTools\Client\_Imports.razor"
-using DisabilityServiceTools.Client.Shared;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 10 "C:\Users\Zak\RiderProjects\CampaignsWithoutNumber\DisabilityServiceTools\Client\_Imports.razor"
 using MudBlazor;
 
 #line default
@@ -90,15 +83,15 @@ using MudBlazor;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 53 "C:\Users\Zak\RiderProjects\CampaignsWithoutNumber\DisabilityServiceTools\Client\Shared\NavMenu.razor"
+#line 23 "C:\Users\Zak\RiderProjects\CampaignsWithoutNumber\DisabilityServiceTools\Client\Shared\NavMenu.razor"
        
-    private bool collapseNavMenu = true;
+    private bool _collapseNavMenu = true;
 
-    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+    private string NavMenuCssClass => _collapseNavMenu ? "collapse" : null;
 
     private void ToggleNavMenu()
     {
-        collapseNavMenu = !collapseNavMenu;
+        _collapseNavMenu = !_collapseNavMenu;
     }
 
 #line default

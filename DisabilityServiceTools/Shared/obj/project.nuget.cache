@@ -1,10 +1,19 @@
 {
   "version": 2,
-  "dgSpecHash": "Kfj/eN9RQyVE04WFyxI9jBBY9bYCjiUeSmrMSQUoNcskLhG2LkNeknfz4lqqQXqp7DC4i1z68y7lPUJojJRtzA==",
+  "dgSpecHash": "5MN73bwmQe+S6cAQpXvT1/Ds3TCqkUDMbz2kpjD6HKuXQJCh6Q5ojHWt/Z5utjTped/O9lkSjiWHNSWA9Z5GNg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Zak\\RiderProjects\\CampaignsWithoutNumber\\DisabilityServiceTools\\Shared\\CampaignsWithoutNumber.Shared.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Zak\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512"
+    "C:\\Users\\Zak\\.nuget\\packages\\dnsclient\\1.4.0\\dnsclient.1.4.0.nupkg.sha512",
+    "C:\\Users\\Zak\\.nuget\\packages\\mongodb.bson\\2.14.1\\mongodb.bson.2.14.1.nupkg.sha512",
+    "C:\\Users\\Zak\\.nuget\\packages\\mongodb.driver\\2.14.1\\mongodb.driver.2.14.1.nupkg.sha512",
+    "C:\\Users\\Zak\\.nuget\\packages\\mongodb.driver.core\\2.14.1\\mongodb.driver.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\Zak\\.nuget\\packages\\mongodb.libmongocrypt\\1.3.0\\mongodb.libmongocrypt.1.3.0.nupkg.sha512",
+    "C:\\Users\\Zak\\.nuget\\packages\\sharpcompress\\0.30.1\\sharpcompress.0.30.1.nupkg.sha512",
+    "C:\\Users\\Zak\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
+    "C:\\Users\\Zak\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512",
+    "C:\\Users\\Zak\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\5.0.0\\system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512",
+    "C:\\Users\\Zak\\.nuget\\packages\\system.text.encoding.codepages\\5.0.0\\system.text.encoding.codepages.5.0.0.nupkg.sha512"
   ],
   "logs": []
 }

@@ -63,14 +63,7 @@ using Microsoft.JSInterop;
 #nullable disable
 #nullable restore
 #line 8 "C:\Users\Zak\RiderProjects\CampaignsWithoutNumber\DisabilityServiceTools\Client\_Imports.razor"
-using DisabilityServiceTools.Client;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 9 "C:\Users\Zak\RiderProjects\CampaignsWithoutNumber\DisabilityServiceTools\Client\_Imports.razor"
-using DisabilityServiceTools.Client.Shared;
+using CampaignsWithoutNumber.Client.Shared;
 
 #line default
 #line hidden

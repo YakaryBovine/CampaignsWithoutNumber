@@ -25,4 +25,18 @@
     <ProjectReference Include="..\Shared\CampaignsWithoutNumber.Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Pages\Courses\ListCourses.razor" />
+    <_ContentIncludedByDefault Remove="Pages\ExamArrangements\ExamArrangementsList.razor" />
+    <_ContentIncludedByDefault Remove="Pages\Exams\ListExams.razor" />
+    <_ContentIncludedByDefault Remove="Pages\SupportStaff\SupportStaffList.razor" />
+    <_ContentIncludedByDefault Remove="Pages\TestArrangements\TestArrangementsList.razor" />
+    <_ContentIncludedByDefault Remove="Pages\Tests\CreateTest.razor" />
+    <_ContentIncludedByDefault Remove="Pages\Tests\ListTests.razor" />
+    <_ContentIncludedByDefault Remove="Pages\Tests\TestDetails.razor" />
+    <_ContentIncludedByDefault Remove="Pages\Students\CreateStudent.razor" />
+    <_ContentIncludedByDefault Remove="Pages\Students\ListStudents.razor" />
+    <_ContentIncludedByDefault Remove="Pages\Students\StudentDetails.razor" />
+  </ItemGroup>
+
 </Project>

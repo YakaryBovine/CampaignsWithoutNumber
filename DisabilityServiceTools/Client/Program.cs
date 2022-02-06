@@ -3,10 +3,9 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
-using DisabilityServiceTools.Client.Repositories;
 using MudBlazor.Services;
 
-namespace DisabilityServiceTools.Client
+namespace CampaignsWithoutNumber.Client
 {
   public class Program
   {
@@ -17,13 +16,6 @@ namespace DisabilityServiceTools.Client
 
       builder.Services.AddTransient(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
       builder.Services.AddMudServices();
-      builder.Services.AddScoped<IStudentClientRepository, StudentClientRepository>();
-      builder.Services.AddScoped<ITestClientRepository, TestClientRepository>();
-      builder.Services.AddScoped<IExamClientRepository, ExamClientRepository>();
-      builder.Services.AddScoped<ICourseClientRepository, CourseClientRepository>();
-      builder.Services.AddScoped<ITestArrangementClientRepository, TestArrangementClientRepository>();
-      builder.Services.AddScoped<IExamArrangementClientRepository, ExamArrangementClientRepository>();
-      builder.Services.AddScoped<ISupportStaffClientRepository, SupportStaffClientRepository>();
 
       await builder.Build().RunAsync();
     }

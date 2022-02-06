@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.SignalR;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using Microsoft.AspNetCore.SignalR;
 
-namespace DisabilityServiceTools.Server.Hubs
+namespace CampaignsWithoutNumber.Server.Hubs
 {
   public class BroadcastHub : Hub
   {

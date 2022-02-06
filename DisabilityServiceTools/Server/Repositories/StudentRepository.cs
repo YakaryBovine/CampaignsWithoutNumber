@@ -1,13 +1,13 @@
-﻿using DisabilityServiceTools.Shared.RequestFeatures;
-using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using DisabilityServiceTools.Server.Paging;
-using DisabilityServiceTools.Server.Repositories.RepositoryExtensions;
-using DisabilityServiceTools.Shared.Models;
-using DisabilityServiceTools.Server.Data;
+using CampaignsWithoutNumber.Server.Data;
+using CampaignsWithoutNumber.Server.Paging;
+using CampaignsWithoutNumber.Server.Repositories.RepositoryExtensions;
+using CampaignsWithoutNumber.Shared.Models;
+using CampaignsWithoutNumber.Shared.RequestFeatures;
+using Microsoft.EntityFrameworkCore;
 
-namespace DisabilityServiceTools.Server.Repositories
+namespace CampaignsWithoutNumber.Server.Repositories
 {
   public class StudentRepository : IStudentRepository
   {
