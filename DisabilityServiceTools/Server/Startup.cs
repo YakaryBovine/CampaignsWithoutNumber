@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using CampaignsWithoutNumber.Server.Hubs;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.ResponseCompression;
@@ -58,7 +57,6 @@ namespace CampaignsWithoutNumber.Server
       {
         endpoints.MapRazorPages();
         endpoints.MapControllers();
-        endpoints.MapHub<BroadcastHub>("/broadcastHub");
         endpoints.MapFallbackToFile("index.html");
       });
     }
