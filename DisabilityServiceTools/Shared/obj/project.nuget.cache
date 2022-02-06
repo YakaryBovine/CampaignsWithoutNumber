@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "Kfj/eN9RQyVE04WFyxI9jBBY9bYCjiUeSmrMSQUoNcskLhG2LkNeknfz4lqqQXqp7DC4i1z68y7lPUJojJRtzA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Zak\\RiderProjects\\CampaignsWithoutNumber\\DisabilityServiceTools\\Shared\\CampaignsWithoutNumber.Shared.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Zak\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

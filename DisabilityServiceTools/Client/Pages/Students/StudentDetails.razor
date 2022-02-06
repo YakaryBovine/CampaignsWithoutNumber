@@ -1,0 +1,34 @@
+﻿@page "/studentdetails/{id:int}"
+@using DisabilityServiceTools.Shared.Models
+@using DisabilityServiceTools.Client.Repositories
+
+<MudCard>
+  <MudCardHeader>
+    <CardHeaderContent>
+      <MudText Typo="Typo.h4" Class="mb-4">@Student.FirstName @Student.Surname</MudText>
+    </CardHeaderContent>
+  </MudCardHeader>
+  <MudCardContent>
+    <MudText Typo="Typo.body1">
+      <strong>First name:</strong> @Student.FirstName
+    </MudText>
+    <MudText Typo="Typo.body1">
+      <strong>Surname:</strong> @Student.Surname
+    </MudText>
+    <MudText Typo="Typo.body1">
+      <strong>Student ID:</strong> @Student.StudentId
+    </MudText>
+  </MudCardContent>
+</MudCard>
+
+@code {
+    public Student Student { get; set; } = new Student();
+    [Inject]
+    public IStudentClientRepository Repository { get; set; }
+    [Parameter]
+    public int Id { get; set; }
+    protected async override Task OnInitializedAsync()
+    {
+        Student = await Repository.GetStudent(Id);
+    }
+} 

@@ -1,0 +1,61 @@
+﻿@page "/listcourses"
+@using DisabilityServiceTools.Shared.Models
+@using DisabilityServiceTools.Shared.RequestFeatures
+@using DisabilityServiceTools.Client.Repositories
+@using Microsoft.AspNetCore.Components;
+@using MudBlazor;
+@using System.Threading.Tasks;
+
+<MudTable ServerData="@(new Func<TableState, Task<TableData<Course>>>(GetServerData))"
+          Hover="true" Breakpoint="Breakpoint.Sm" RightAlignSmall="true"
+          @ref="_table" RowsPerPage="25">
+  <ToolBarContent>
+    <MudText Typo="Typo.h6">Courses</MudText>
+    <MudSpacer />
+    <MudTextField OnDebounceIntervalElapsed="OnSearch" Placeholder="Search" Adornment="Adornment.Start"
+                  AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Small"
+                  Class="mt-0" T="string" DebounceInterval="500"></MudTextField>
+  </ToolBarContent>
+  <HeaderContent>
+      <MudTh><MudTableSortLabel SortLabel="code" T="Course">Code</MudTableSortLabel></MudTh>
+  </HeaderContent>
+  <RowTemplate>
+    <MudTd DataLabel="Code">@context.Code</MudTd>
+  </RowTemplate>
+  <PagerContent>
+    <MudTablePager PageSizeOptions="@_pageSizeOption" RowsPerPageString="Courses per page" />
+  </PagerContent>
+</MudTable>
+
+@code {
+  private MudTable<Course> _table;
+  private CourseParameters _studentParameters = new CourseParameters();
+  private readonly int[] _pageSizeOption = { 25, 50, 100 };
+
+  [Inject]
+  public ICourseClientRepository Repository { get; set; }
+
+  private async Task<TableData<Course>> GetServerData(TableState state)
+  {
+    _studentParameters.PageSize = state.PageSize;
+    _studentParameters.PageNumber = state.Page + 1;
+
+    _studentParameters.OrderBy = state.SortDirection == SortDirection.Descending ?
+        state.SortLabel + " desc" :
+        state.SortLabel;
+
+    var response = await Repository.GetCourses(_studentParameters);
+
+    return new TableData<Course>
+    {
+      Items = response.Items,
+      TotalItems = response.MetaData.TotalCount
+    };
+  }
+
+  private void OnSearch(string searchTerm)
+  {
+    _studentParameters.SearchTerm = searchTerm;
+    _table.ReloadServerData();
+  }
+} 

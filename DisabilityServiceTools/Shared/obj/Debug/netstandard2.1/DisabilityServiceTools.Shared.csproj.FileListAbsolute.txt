@@ -1,0 +1,10 @@
+C:\Users\Zak\RiderProjects\DisabilityServiceTools\DisabilityServiceTools\Shared\bin\Debug\netstandard2.1\DisabilityServiceTools.Shared.deps.json
+C:\Users\Zak\RiderProjects\DisabilityServiceTools\DisabilityServiceTools\Shared\bin\Debug\netstandard2.1\DisabilityServiceTools.Shared.dll
+C:\Users\Zak\RiderProjects\DisabilityServiceTools\DisabilityServiceTools\Shared\bin\Debug\netstandard2.1\DisabilityServiceTools.Shared.pdb
+C:\Users\Zak\RiderProjects\DisabilityServiceTools\DisabilityServiceTools\Shared\obj\Debug\netstandard2.1\DisabilityServiceTools.Shared.csproj.AssemblyReference.cache
+C:\Users\Zak\RiderProjects\DisabilityServiceTools\DisabilityServiceTools\Shared\obj\Debug\netstandard2.1\DisabilityServiceTools.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Zak\RiderProjects\DisabilityServiceTools\DisabilityServiceTools\Shared\obj\Debug\netstandard2.1\DisabilityServiceTools.Shared.AssemblyInfoInputs.cache
+C:\Users\Zak\RiderProjects\DisabilityServiceTools\DisabilityServiceTools\Shared\obj\Debug\netstandard2.1\DisabilityServiceTools.Shared.AssemblyInfo.cs
+C:\Users\Zak\RiderProjects\DisabilityServiceTools\DisabilityServiceTools\Shared\obj\Debug\netstandard2.1\DisabilityServiceTools.Shared.csproj.CoreCompileInputs.cache
+C:\Users\Zak\RiderProjects\DisabilityServiceTools\DisabilityServiceTools\Shared\obj\Debug\netstandard2.1\DisabilityServiceTools.Shared.dll
+C:\Users\Zak\RiderProjects\DisabilityServiceTools\DisabilityServiceTools\Shared\obj\Debug\netstandard2.1\DisabilityServiceTools.Shared.pdb

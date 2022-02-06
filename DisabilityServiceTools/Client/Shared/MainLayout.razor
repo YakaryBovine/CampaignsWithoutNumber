@@ -1,0 +1,38 @@
+﻿@inherits LayoutComponentBase
+@using MudBlazor
+
+<MudThemeProvider Theme="DisabilityServiceTheme" />
+<MudDialogProvider />
+<MudSnackbarProvider />
+
+<div style="        background-image: none; background-color: rgb(5,82,59);" class="sidebar">
+    <NavMenu />
+</div>
+
+<div class="main">
+    <div class="top-row px-4">
+        <a class="ml-md-auto">Developed By Zakary Boven</a>
+    </div>
+
+    <div class="content px-4">
+        @Body
+    </div>
+</div>
+
+@code{
+    MudTheme DisabilityServiceTheme = new MudTheme()
+    {
+        Palette = new Palette()
+        {
+            Primary = Colors.Green.Default,
+            Secondary = Colors.Green.Lighten1,
+            AppbarBackground = Colors.Green.Accent1,
+        },
+
+        LayoutProperties = new LayoutProperties()
+        {
+            DrawerWidthLeft = "260px",
+            DrawerWidthRight = "300px"
+        }
+    };
+}
