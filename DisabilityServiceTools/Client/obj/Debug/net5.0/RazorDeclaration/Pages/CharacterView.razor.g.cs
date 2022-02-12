@@ -11,6 +11,7 @@ namespace CampaignsWithoutNumber.Client.Pages
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
+    using Microsoft.AspNetCore.Components;
 #nullable restore
 #line 1 "C:\Users\Zak\RiderProjects\CampaignsWithoutNumber\DisabilityServiceTools\Client\_Imports.razor"
 using System.Net.Http.Json;
@@ -74,27 +75,6 @@ using MudBlazor;
 #line default
 #line hidden
 #nullable disable
-#nullable restore
-#line 2 "C:\Users\Zak\RiderProjects\CampaignsWithoutNumber\DisabilityServiceTools\Client\Pages\CharacterView.razor"
-using Microsoft.AspNetCore.Components;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 3 "C:\Users\Zak\RiderProjects\CampaignsWithoutNumber\DisabilityServiceTools\Client\Pages\CharacterView.razor"
-using CampaignsWithoutNumber.Shared.Models;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 4 "C:\Users\Zak\RiderProjects\CampaignsWithoutNumber\DisabilityServiceTools\Client\Pages\CharacterView.razor"
-using System.Threading;
-
-#line default
-#line hidden
-#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/character")]
     public partial class CharacterView : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -103,87 +83,7 @@ using System.Threading;
         {
         }
         #pragma warning restore 1998
-#nullable restore
-#line 123 "C:\Users\Zak\RiderProjects\CampaignsWithoutNumber\DisabilityServiceTools\Client\Pages\CharacterView.razor"
-      
-    protected string ModalTitle { get; set; }
-    protected List<Character> CharacterList;
-    protected List<Item> ItemList;
-    protected Character Character = new();
-    protected bool IsDelete;
-    protected bool IsAdd;
-
-    protected async Task GetCharacters()
-    {
-        CharacterList = await _http.GetFromJsonAsync<List<Character>>("api/character/getcharacters");
-    }
-
-    protected async Task GetCategories()
-    {
-        ItemList = await _http.GetFromJsonAsync<List<Item>>("/api/character/getitems/");
-    }
-
-    protected async Task AddCharacter()
-    {
-        Character = new Character();
-        ModalTitle = "Add Character";
-        IsAdd = true;
-        await GetCategories().ConfigureAwait(false);
-    }
-
-    protected async Task EditCharacter(string id)
-    {
-        Character = await _http.GetFromJsonAsync<Character>("api/character/details/" + id);
-        ModalTitle = "Edit Character";
-        IsAdd = true;
-        await GetCategories().ConfigureAwait(false);
-    }
-
-    protected async Task SaveCharacter()
-    {
-        if (Character.Id != null)
-        {
-            await HttpClientJsonExtensions.PostAsJsonAsync(_http, "api/character/edit", Character, new CancellationToken());
-        }
-        else
-        {
-            await HttpClientJsonExtensions.PostAsJsonAsync(_http, "api/character/create", Character, new CancellationToken());
-        }
-        IsAdd = false;
-        await GetCharacters();
-    }
-
-    protected async Task DeleteConfirmation(string id)
-    {
-        ModalTitle = "Delete Character";
-        Character = await _http.GetFromJsonAsync<Character>("/api/character/details/" + id);
-        IsDelete = true;
-    }
-
-    protected async Task DeleteCharacter(string id)
-    {
-        await _http.DeleteAsync("api/character/delete/" + id);
-        IsDelete = false;
-        await GetCharacters();
-    }
-
-    protected void CloseModal()
-    {
-        IsAdd = false;
-        IsDelete = false;
-    }
-
-    protected override async Task OnInitializedAsync()
-    {
-        await GetCategories();
-        await GetCharacters();
-    }
-
-
-#line default
-#line hidden
-#nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private HttpClient _http { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private HttpClient _httpClient { get; set; }
     }
 }
 #pragma warning restore 1591

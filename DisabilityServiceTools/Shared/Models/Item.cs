@@ -7,7 +7,14 @@ namespace CampaignsWithoutNumber.Shared.Models
   {
     [BsonRepresentation(BsonType.ObjectId)]
     public string Id { get; set; }
+
+    public string Name => Definition.Name;
+
+    public ItemDefinition Definition { get; }
     
-    public string Name { get; set; }
+    public Item(ItemDefinition definition)
+    {
+      Definition = definition;
+    }
   }
 }

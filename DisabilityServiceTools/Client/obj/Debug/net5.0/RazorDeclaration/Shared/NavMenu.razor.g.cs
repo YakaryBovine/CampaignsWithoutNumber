@@ -14,14 +14,14 @@ namespace CampaignsWithoutNumber.Client.Shared
     using Microsoft.AspNetCore.Components;
 #nullable restore
 #line 1 "C:\Users\Zak\RiderProjects\CampaignsWithoutNumber\DisabilityServiceTools\Client\_Imports.razor"
-using System.Net.Http;
+using System.Net.Http.Json;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 2 "C:\Users\Zak\RiderProjects\CampaignsWithoutNumber\DisabilityServiceTools\Client\_Imports.razor"
-using System.Net.Http.Json;
+using System.Net.Http;
 
 #line default
 #line hidden
@@ -83,7 +83,7 @@ using MudBlazor;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 23 "C:\Users\Zak\RiderProjects\CampaignsWithoutNumber\DisabilityServiceTools\Client\Shared\NavMenu.razor"
+#line 28 "C:\Users\Zak\RiderProjects\CampaignsWithoutNumber\DisabilityServiceTools\Client\Shared\NavMenu.razor"
        
     private bool _collapseNavMenu = true;
 
@@ -93,6 +93,7 @@ using MudBlazor;
     {
         _collapseNavMenu = !_collapseNavMenu;
     }
+
 
 #line default
 #line hidden

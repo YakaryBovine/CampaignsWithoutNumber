@@ -8,12 +8,16 @@ namespace CampaignsWithoutNumber.Shared.Models
 
     public CampaignDbContext()
     {
-      var client = new MongoClient("mongodb://localhost:27017");
-      _mongoDatabase = client.GetDatabase("CampaignDB");
+      var settings = MongoClientSettings.FromConnectionString(
+        "mongodb+srv://YakaryBovine:coolNewPassword@campaignswithoutnumber.icyn6.mongodb.net/campaignDb?retryWrites=true&w=majority");
+      var client = new MongoClient(settings);
+      _mongoDatabase = client.GetDatabase("campaignDb");
     }
 
-    public IMongoCollection<Character> CharacterRecord => _mongoDatabase.GetCollection<Character>("CharacterRecord");
+    public IMongoCollection<Character> CharacterRecord => _mongoDatabase.GetCollection<Character>("character");
 
-    public IMongoCollection<Item> ItemRecord => _mongoDatabase.GetCollection<Item>("ItemRecord");
+    public IMongoCollection<Item> ItemRecord => _mongoDatabase.GetCollection<Item>("item");
+    
+    public IMongoCollection<ShipDefense> ShipDefenseRecord => _mongoDatabase.GetCollection<ShipDefense>("shipDefense");
   }
 }

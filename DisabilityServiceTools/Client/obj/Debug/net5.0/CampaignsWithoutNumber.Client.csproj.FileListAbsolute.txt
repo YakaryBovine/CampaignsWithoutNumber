@@ -693,3 +693,5 @@ C:\Users\Zak\RiderProjects\CampaignsWithoutNumber\DisabilityServiceTools\Client\
 C:\Users\Zak\RiderProjects\CampaignsWithoutNumber\DisabilityServiceTools\Client\obj\Debug\net5.0\build-gz\HyFBrArM.gz
 C:\Users\Zak\RiderProjects\CampaignsWithoutNumber\DisabilityServiceTools\Client\obj\Debug\net5.0\build-gz\BAxzRwbg.gz
 C:\Users\Zak\RiderProjects\CampaignsWithoutNumber\DisabilityServiceTools\Client\obj\Debug\net5.0\build-gz\tTa2wsZO.gz
+C:\Users\Zak\RiderProjects\CampaignsWithoutNumber\DisabilityServiceTools\Client\obj\Debug\net5.0\RazorDeclaration\Pages\ShipDefenseView.razor.g.cs
+C:\Users\Zak\RiderProjects\CampaignsWithoutNumber\DisabilityServiceTools\Client\obj\Debug\net5.0\Razor\Pages\ShipDefenseView.razor.g.cs

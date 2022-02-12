@@ -14,14 +14,14 @@ namespace CampaignsWithoutNumber.Client.Pages
     using Microsoft.AspNetCore.Components;
 #nullable restore
 #line 1 "C:\Users\Zak\RiderProjects\CampaignsWithoutNumber\DisabilityServiceTools\Client\_Imports.razor"
-using System.Net.Http;
+using System.Net.Http.Json;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 2 "C:\Users\Zak\RiderProjects\CampaignsWithoutNumber\DisabilityServiceTools\Client\_Imports.razor"
-using System.Net.Http.Json;
+using System.Net.Http;
 
 #line default
 #line hidden

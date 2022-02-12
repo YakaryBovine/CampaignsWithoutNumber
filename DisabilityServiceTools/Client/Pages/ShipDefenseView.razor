@@ -1,0 +1,21 @@
+﻿@page "/shipdefense"
+@inject HttpClient _httpClient
+
+<MudTable Items="@_shipDefenses" Hover="true" Breakpoint="Breakpoint.Sm">
+    <HeaderContent>
+        <MudTh>Name</MudTh>
+        <MudTh>Cost</MudTh>
+        <MudTh>Power</MudTh>
+        <MudTh>Mass</MudTh>
+        <MudTh>Class</MudTh>
+        <MudTh>Description</MudTh>
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd DataLabel="Name">@context.Name</MudTd>
+        <MudTd DataLabel="Cost">@context.Cost</MudTd>
+        <MudTd DataLabel="Power">@context.Power</MudTd>
+        <MudTd DataLabel="Mass">@context.Mass</MudTd>
+        <MudTd DataLabel="Class">@context.Class</MudTd>
+        <MudTd DataLabel="Description">@context.ShortDescription</MudTd>
+    </RowTemplate>
+</MudTable>

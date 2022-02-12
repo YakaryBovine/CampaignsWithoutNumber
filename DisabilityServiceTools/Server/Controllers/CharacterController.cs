@@ -1,55 +1,55 @@
 ﻿using System.Collections.Generic;
-using CampaignsWithoutNumber.Server.DataAccess;
+using CampaignsWithoutNumber.Server.Services;
 using CampaignsWithoutNumber.Shared.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CampaignsWithoutNumber.Server.Controllers
 {
-  [Route("api/Character")]
+  [Route("api/character")]
   public class CharacterController : Controller
   {
-    private readonly CharacterDataAccessLayer _objCharacter = new CharacterDataAccessLayer();
+    private readonly CharacterService _characterService = new();
 
     [HttpGet]
-    [Route("Index")]
+    [Route("index")]
     public IEnumerable<Character> Index()
     {
-      return _objCharacter.GetAllCharacters();
+      return _characterService.GetAllCharacters();
     }
 
     [HttpPost]
-    [Route("Create")]
+    [Route("create")]
     public void Create([FromBody] Character character)
     {
-      _objCharacter.AddCharacter(character);
+      _characterService.AddCharacter(character);
     }
 
     [HttpGet]
-    [Route("Details/{id}")]
+    [Route("details/{id}")]
     public Character Details(string id)
     {
-      return _objCharacter.GetCharacterData(id);
+      return _characterService.GetCharacterData(id);
     }
 
     [HttpPut]
-    [Route("Edit")]
+    [Route("edit")]
     public void Edit([FromBody] Character character)
     {
-      _objCharacter.UpdateCharacter(character);
+      _characterService.UpdateCharacter(character);
     }
 
     [HttpDelete]
-    [Route("Delete/{id}")]
+    [Route("delete/{id}")]
     public void Delete(string id)
     {
-      _objCharacter.DeleteCharacter(id);
+      _characterService.DeleteCharacter(id);
     }
 
     [HttpGet]
-    [Route("GetItem")]
+    [Route("getitem")]
     public List<Item> GetItem()
     {
-      return _objCharacter.GetCityData();
+      return _characterService.GetCityData();
     }
   }
 }
