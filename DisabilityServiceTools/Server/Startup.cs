@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using CampaignsWithoutNumber.Server.Services;
 using CampaignsWithoutNumber.Shared.Models;
 using Microsoft.AspNetCore.Builder;
@@ -21,11 +22,6 @@ namespace CampaignsWithoutNumber.Server
 
     private static void CreateDummyData()
     {
-      var characterService = new CharacterService();
-      characterService.AddCharacter(new Character
-      {
-        Name = "Beans"
-      });
       var shipDefenseService = new ShipDefenseService();
       shipDefenseService.AddShipDefense(new ShipDefense
         {
@@ -59,6 +55,44 @@ namespace CampaignsWithoutNumber.Server
           be applied as a penalty to all Pilot tests."
         }
       );
+      var characterClassService = new CharacterClassService();
+      
+      var warrior = new CharacterClass
+      {
+        Name = "Warrior",
+        HitPointsPerLevel = 5.5f,
+        AttackBonusPerLevel = 1f,
+        Features = new List<CharacterFeature>
+        {
+          new("Veteran's Luck")
+        }
+      };
+      characterClassService.AddCharacterClass(warrior);
+
+      var expert = new CharacterClass
+      {
+        Name = "Expert",
+        HitPointsPerLevel = 3.5f,
+        AttackBonusPerLevel = 0.5f,
+        Features = new List<CharacterFeature>
+        {
+          new("Masterful Expertise"),
+          new("Quick Learner")
+        }
+      };
+      characterClassService.AddCharacterClass(expert);
+
+      var psychic = new CharacterClass
+      {
+        Name = "Psychic",
+        HitPointsPerLevel = 3.5f,
+        AttackBonusPerLevel = 0.5f,
+        Features = new List<CharacterFeature>
+        {
+          new("Veteran's Luck")
+        }
+      };
+      characterClassService.AddCharacterClass(psychic);
     }
 
     // This method gets called by the runtime. Use this method to add services to the container.

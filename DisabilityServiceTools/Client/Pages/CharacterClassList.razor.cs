@@ -5,13 +5,13 @@ using CampaignsWithoutNumber.Shared.Models;
 
 namespace CampaignsWithoutNumber.Client.Pages
 {
-  public partial class CharacterView
+  public partial class CharacterClassList
   {
-    private IEnumerable<Character> _characters = new List<Character>();
+    private IEnumerable<CharacterClass> _characterClasses = new List<CharacterClass>();
 
     protected override async Task OnInitializedAsync()
     {
-      _characters = await _httpClient.GetFromJsonAsync<List<Character>>("api/character/index");
+      _characterClasses = await _httpClient.GetFromJsonAsync<List<CharacterClass>>("api/characterclass/index");
     }
   }
 }

@@ -10,34 +10,34 @@ namespace CampaignsWithoutNumber.Server.Services
 
     public IEnumerable<Character> GetAllCharacters()
     {
-      return _db.CharacterRecord.Find(_ => true).ToList();
+      return _db.CharacterCollection.Find(_ => true).ToList();
     }
     
     public void AddCharacter(Character character)
     {
-      _db.CharacterRecord.InsertOne(character);
+      _db.CharacterCollection.InsertOne(character);
     }
     
     public Character GetCharacterData(string id)
     {
       var filterCharacterData = Builders<Character>.Filter.Eq("Id", id);
-      return _db.CharacterRecord.Find(filterCharacterData).FirstOrDefault();
+      return _db.CharacterCollection.Find(filterCharacterData).FirstOrDefault();
     }
     
     public void UpdateCharacter(Character character)
     {
-      _db.CharacterRecord.ReplaceOne(g => g.Id == character.Id, character);
+      _db.CharacterCollection.ReplaceOne(g => g.Id == character.Id, character);
     }
 
     public void DeleteCharacter(string id)
     {
       var characterData = Builders<Character>.Filter.Eq("Id", id);
-      _db.CharacterRecord.DeleteOne(characterData);
+      _db.CharacterCollection.DeleteOne(characterData);
     }
 
     public List<Item> GetCityData()
     {
-      return _db.ItemRecord.Find(_ => true).ToList();
+      return _db.ItemCollection.Find(_ => true).ToList();
     }
   }
 }

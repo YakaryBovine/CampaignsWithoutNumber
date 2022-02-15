@@ -14,10 +14,12 @@ namespace CampaignsWithoutNumber.Shared.Models
       _mongoDatabase = client.GetDatabase("campaignDb");
     }
 
-    public IMongoCollection<Character> CharacterRecord => _mongoDatabase.GetCollection<Character>("character");
+    public IMongoCollection<Character> CharacterCollection => _mongoDatabase.GetCollection<Character>("character");
 
-    public IMongoCollection<Item> ItemRecord => _mongoDatabase.GetCollection<Item>("item");
+    public IMongoCollection<Item> ItemCollection => _mongoDatabase.GetCollection<Item>("item");
     
-    public IMongoCollection<ShipDefense> ShipDefenseRecord => _mongoDatabase.GetCollection<ShipDefense>("shipDefense");
+    public IMongoCollection<ShipDefense> ShipDefenseCollection => _mongoDatabase.GetCollection<ShipDefense>("shipDefense");
+    
+    public IMongoCollection<CharacterClass> CharacterClassCollection => _mongoDatabase.GetCollection<CharacterClass>("characterClass");
   }
 }

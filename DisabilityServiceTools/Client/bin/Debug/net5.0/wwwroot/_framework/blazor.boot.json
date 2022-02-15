@@ -217,15 +217,15 @@
       "mscorlib.dll": "sha256-+dB3Q0YubUPF1oZDMVZn6ZCiRkzRomtLoq51T5FocJk=",
       "netstandard.dll": "sha256-dOHF0zANIyA4WS496iWrAkTuEFWSWrXJjZj2pQQHrMA=",
       "System.Private.CoreLib.dll": "sha256-C96+zv+mWW0XzMG520oRgAG1lHVY8xzWGc6oc6rFjws=",
-      "CampaignsWithoutNumber.Shared.dll": "sha256-GkdkpWj1z1b69teldj4zarTiTUOmjV7CtKTb3eSth4c=",
-      "CampaignsWithoutNumber.Client.dll": "sha256-k0v1auzAFlAMPC9awJRN2M8+BY+gQIr4WRQtGHPNihg="
+      "CampaignsWithoutNumber.Shared.dll": "sha256-psxs8\/l7L03RNm87J76d6SxBMoVvoRuRmNsRZuR3KQc=",
+      "CampaignsWithoutNumber.Client.dll": "sha256-KnGn6qvYmdinjai7DLhlykuHB5\/BtA5gs7mWLX9VpSQ="
     },
     "extensions": null,
     "lazyAssembly": null,
     "libraryInitializers": null,
     "pdb": {
-      "CampaignsWithoutNumber.Shared.pdb": "sha256-sYaqMGkXBosA8jnwB0QnO2+EN8wYqGQOBHJ0nHCWzLc=",
-      "CampaignsWithoutNumber.Client.pdb": "sha256-\/i2uC7WstaEPTyJOjJrAJiNfB3FTnKuB8Y5pWmEOFhc="
+      "CampaignsWithoutNumber.Shared.pdb": "sha256-e7FF2swR+mZyr8wIJa+YLRxCJLCI\/ikEA4d7DSneBMY=",
+      "CampaignsWithoutNumber.Client.pdb": "sha256-V4Eim9nkDJKccg5RwB2944VA79pkhta+RAstufBSd\/s="
     },
     "runtime": {
       "dotnet.timezones.blat": "sha256-ir9YCVnnk7popgsYUkvitfGA4WpkP1ydPh\/ENHnxGys=",

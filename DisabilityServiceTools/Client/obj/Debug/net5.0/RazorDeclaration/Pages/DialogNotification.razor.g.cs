@@ -75,15 +75,30 @@ using MudBlazor;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/character")]
-    public partial class CharacterView : Microsoft.AspNetCore.Components.ComponentBase
+    public partial class DialogNotification : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
         {
         }
         #pragma warning restore 1998
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private HttpClient _httpClient { get; set; }
+#nullable restore
+#line 9 "C:\Users\Zak\RiderProjects\CampaignsWithoutNumber\DisabilityServiceTools\Client\Pages\DialogNotification.razor"
+       
+    [CascadingParameter]
+    public MudDialogInstance MudDialog { get; set; }
+    [Parameter]
+    public string Content { get; set; }
+    [Parameter]
+    public string ButtonText { get; set; }
+    [Parameter]
+    public Color ButtonColor { get; set; }
+    private void Submit() =>
+        MudDialog.Close(DialogResult.Ok(true));
+
+#line default
+#line hidden
+#nullable disable
     }
 }
 #pragma warning restore 1591

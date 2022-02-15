@@ -83,7 +83,7 @@ using MudBlazor;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 28 "C:\Users\Zak\RiderProjects\CampaignsWithoutNumber\DisabilityServiceTools\Client\Shared\NavMenu.razor"
+#line 33 "C:\Users\Zak\RiderProjects\CampaignsWithoutNumber\DisabilityServiceTools\Client\Shared\NavMenu.razor"
        
     private bool _collapseNavMenu = true;
 

@@ -1,0 +1,32 @@
+﻿@page "/charactercreate"
+@inject HttpClient _httpClient
+@using CampaignsWithoutNumber.Shared.Models;
+
+<h3>Create Character</h3>
+
+<section style="width:600px; margin: 0 auto;">
+    <EditForm Model="_character" OnValidSubmit="Create">
+        <DataAnnotationsValidator />
+        <MudCard>
+            <MudCardContent>
+                <MudTextField Label="Name" @bind-Value="_character.Name"
+                              For="@(() => _character.Name)"/>
+                <MudSelect T="CharacterClass" Label="Class" AnchorOrigin="Origin.BottomCenter" @bind-Value="_character.Class">
+                    @foreach (var characterClass in _characterClasses)
+                    {
+                        <MudSelectItem Value="characterClass"> </MudSelectItem>
+                    }
+                </MudSelect>
+                <MudTextField Label="Level" @bind-Value="_character.Level"
+                              For="@(() => _character.Level)"/>
+            </MudCardContent>
+            <MudCardActions>
+              <MudButton ButtonType="ButtonType.Button" Variant="Variant.Filled"
+                         Link="/character"
+                         Class="ml-auto">Cancel</MudButton>
+              <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary"
+                         Class="ml-auto">Submit Character</MudButton>
+            </MudCardActions>
+        </MudCard>
+    </EditForm>
+</section>

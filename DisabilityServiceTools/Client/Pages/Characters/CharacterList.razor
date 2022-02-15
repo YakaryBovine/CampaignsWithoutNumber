@@ -1,0 +1,23 @@
+﻿@page "/characterlist"
+@inject HttpClient _httpClient
+
+<MudTooltip Text="Create Character">
+    <MudLink Href="/charactercreate">
+        <MudFab Icon="@Icons.Filled.Add" Color="Color.Secondary" Size="Size.Large" />
+    </MudLink>
+</MudTooltip>
+
+<MudTable Items="@_characters" Hover="true" Breakpoint="Breakpoint.Sm">
+    <HeaderContent>
+        <MudTh>Name</MudTh>
+        <MudTh>Class</MudTh>
+        <MudTh>Level</MudTh>
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd DataLabel="Name">
+            <MudLink Href="@($"characterdetails/{context.Id}")">@context.Name</MudLink>
+        </MudTd>
+        <MudTd DataLabel="Class">@context.ClassName</MudTd>
+        <MudTd DataLabel="Level">@context.Level</MudTd>
+    </RowTemplate>
+</MudTable>

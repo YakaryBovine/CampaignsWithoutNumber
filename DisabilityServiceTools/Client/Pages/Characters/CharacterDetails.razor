@@ -1,0 +1,41 @@
+﻿@page "/characterdetails/{Id}"
+@using CampaignsWithoutNumber.Shared.Models
+@inject HttpClient _httpClient
+
+<MudCard>
+    <MudCardHeader>
+        <CardHeaderContent>
+            <MudText Typo="Typo.h4" Class="mb-4">@Character.Name</MudText>
+        </CardHeaderContent>
+    </MudCardHeader>
+    <MudCardContent>
+        <MudText Typo="Typo.body1">
+            <strong>Name:</strong> @Character.Name
+        </MudText>
+        <MudText Typo="Typo.body1">
+            <strong>Class:</strong> @Character.ClassName
+        </MudText>
+        <MudText Typo="Typo.body1">
+            <strong>Level:</strong> @Character.Level
+        </MudText>
+        <MudText Typo="Typo.body1">
+            <strong>Hit points:</strong> @Character.HitPoints
+        </MudText>
+        <MudText Typo="Typo.body1">
+            <strong>Attack bonus:</strong> @Character.AttackBonus
+        </MudText>
+    </MudCardContent>
+</MudCard>
+
+@code {
+    private Character Character { get; set; } = new();
+
+    [Parameter]
+    public string Id { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        Character = await _httpClient.GetFromJsonAsync<Character>($"api/character/details/{Id}");
+    }
+
+}
