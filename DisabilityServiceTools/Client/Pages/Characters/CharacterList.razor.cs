@@ -1,17 +1,17 @@
 ﻿using System.Collections.Generic;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
-using CampaignsWithoutNumber.Shared.Models;
+using CampaignsWithoutNumber.Shared.DataTransferObjects;
 
 namespace CampaignsWithoutNumber.Client.Pages.Characters
 {
   public partial class CharacterList
   {
-    private IEnumerable<Character> _characters = new List<Character>();
+    private IEnumerable<CharacterDto> _characters = new List<CharacterDto>();
 
     protected override async Task OnInitializedAsync()
     {
-      _characters = await _httpClient.GetFromJsonAsync<List<Character>>("api/character/index");
+      _characters = await _httpClient.GetFromJsonAsync<List<CharacterDto>>("api/character/index");
     }
   }
 }

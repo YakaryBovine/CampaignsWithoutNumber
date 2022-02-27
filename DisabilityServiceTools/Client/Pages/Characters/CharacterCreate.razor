@@ -1,6 +1,6 @@
 ﻿@page "/charactercreate"
 @inject HttpClient _httpClient
-@using CampaignsWithoutNumber.Shared.Models;
+@using CampaignsWithoutNumber.Shared.DataTransferObjects;
 
 <h3>Create Character</h3>
 
@@ -11,10 +11,10 @@
             <MudCardContent>
                 <MudTextField Label="Name" @bind-Value="_character.Name"
                               For="@(() => _character.Name)"/>
-                <MudSelect T="CharacterClass" Label="Class" AnchorOrigin="Origin.BottomCenter" @bind-Value="_character.Class">
+                <MudSelect T="CharacterClassDto" Label="Class" AnchorOrigin="Origin.BottomCenter" @bind-Value="_character.Class">
                     @foreach (var characterClass in _characterClasses)
                     {
-                        <MudSelectItem Value="characterClass"> </MudSelectItem>
+                        <MudSelectItem Value="characterClass"></MudSelectItem>
                     }
                 </MudSelect>
                 <MudTextField Label="Level" @bind-Value="_character.Level"

@@ -10,6 +10,7 @@ namespace CampaignsWithoutNumber.Shared.Models
     {
       var settings = MongoClientSettings.FromConnectionString(
         "mongodb+srv://YakaryBovine:coolNewPassword@campaignswithoutnumber.icyn6.mongodb.net/campaignDb?retryWrites=true&w=majority");
+      settings.ServerApi = new ServerApi(ServerApiVersion.V1);
       var client = new MongoClient(settings);
       _mongoDatabase = client.GetDatabase("campaignDb");
     }

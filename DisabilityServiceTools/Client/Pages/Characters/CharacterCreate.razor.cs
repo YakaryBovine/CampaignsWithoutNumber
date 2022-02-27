@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
-using CampaignsWithoutNumber.Shared.Models;
+using CampaignsWithoutNumber.Shared.DataTransferObjects;
 using Microsoft.AspNetCore.Components;
 using MudBlazor;
 
@@ -9,8 +9,8 @@ namespace CampaignsWithoutNumber.Client.Pages.Characters
 {
   public partial class CharacterCreate
   {
-    private readonly Character _character = new();
-    private IEnumerable<CharacterClass> _characterClasses = new List<CharacterClass>();
+    private readonly CharacterDto _character = new();
+    private IEnumerable<CharacterClassDto> _characterClasses = new List<CharacterClassDto>();
     
     [Inject] public IDialogService Dialog { get; set; }
     [Inject] public NavigationManager NavManager { get; set; }
@@ -41,7 +41,7 @@ namespace CampaignsWithoutNumber.Client.Pages.Characters
     
     protected override async Task OnInitializedAsync()
     {
-      _characterClasses = await _httpClient.GetFromJsonAsync<List<CharacterClass>>("api/characterclass/index");
+      _characterClasses = await _httpClient.GetFromJsonAsync<List<CharacterClassDto>>("api/characterclass/index");
     }
   }
 }

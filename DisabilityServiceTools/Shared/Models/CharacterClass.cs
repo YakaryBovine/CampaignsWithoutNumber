@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using CampaignsWithoutNumber.Shared.DataTransferObjects;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
@@ -22,9 +23,11 @@ namespace CampaignsWithoutNumber.Shared.Models
       var other = o as CharacterClass;
       return other?.Name == Name;
     }
-    
-    public override int GetHashCode() => Name?.GetHashCode() ?? 0;
-    
-    public override string ToString() => Name;
+
+    public void Apply(CharacterDto characterDto)
+    {
+      characterDto.HitPoints = (int) (HitPointsPerLevel * characterDto.Level);
+      characterDto.AttackBonus = (int) (AttackBonusPerLevel * characterDto.Level);
+    }
   }
 }

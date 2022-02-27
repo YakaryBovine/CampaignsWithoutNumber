@@ -77,7 +77,7 @@ using MudBlazor;
 #nullable disable
 #nullable restore
 #line 3 "C:\Users\Zak\RiderProjects\CampaignsWithoutNumber\DisabilityServiceTools\Client\Pages\Characters\CharacterCreate.razor"
-using CampaignsWithoutNumber.Shared.Models;
+using CampaignsWithoutNumber.Shared.DataTransferObjects;
 
 #line default
 #line hidden

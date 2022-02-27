@@ -77,7 +77,7 @@ using MudBlazor;
 #nullable disable
 #nullable restore
 #line 2 "C:\Users\Zak\RiderProjects\CampaignsWithoutNumber\DisabilityServiceTools\Client\Pages\Characters\CharacterDetails.razor"
-using CampaignsWithoutNumber.Shared.Models;
+using CampaignsWithoutNumber.Shared.DataTransferObjects;
 
 #line default
 #line hidden
@@ -93,14 +93,14 @@ using CampaignsWithoutNumber.Shared.Models;
 #nullable restore
 #line 30 "C:\Users\Zak\RiderProjects\CampaignsWithoutNumber\DisabilityServiceTools\Client\Pages\Characters\CharacterDetails.razor"
        
-    private Character Character { get; set; } = new();
+    private CharacterDto Character { get; set; } = new();
 
     [Parameter]
     public string Id { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
-        Character = await _httpClient.GetFromJsonAsync<Character>($"api/character/details/{Id}");
+        Character = await _httpClient.GetFromJsonAsync<CharacterDto>($"api/character/details/{Id}");
     }
 
 

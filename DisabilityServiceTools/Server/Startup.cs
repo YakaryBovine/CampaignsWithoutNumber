@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using CampaignsWithoutNumber.Server.Services;
+using CampaignsWithoutNumber.Shared.CharacterFeatures;
 using CampaignsWithoutNumber.Shared.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -64,7 +65,7 @@ namespace CampaignsWithoutNumber.Server
         AttackBonusPerLevel = 1f,
         Features = new List<CharacterFeature>
         {
-          new("Veteran's Luck")
+          new VeteransLuck()
         }
       };
       characterClassService.AddCharacterClass(warrior);
@@ -76,8 +77,8 @@ namespace CampaignsWithoutNumber.Server
         AttackBonusPerLevel = 0.5f,
         Features = new List<CharacterFeature>
         {
-          new("Masterful Expertise"),
-          new("Quick Learner")
+          new MasterfulExpertise(),
+          new QuickLearner()
         }
       };
       characterClassService.AddCharacterClass(expert);
@@ -89,7 +90,7 @@ namespace CampaignsWithoutNumber.Server
         AttackBonusPerLevel = 0.5f,
         Features = new List<CharacterFeature>
         {
-          new("Veteran's Luck")
+          new VeteransLuck()
         }
       };
       characterClassService.AddCharacterClass(psychic);

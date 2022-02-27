@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using CampaignsWithoutNumber.Server.Services;
-using CampaignsWithoutNumber.Shared.Models;
+using CampaignsWithoutNumber.Shared.DataTransferObjects;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CampaignsWithoutNumber.Server.Controllers
@@ -12,28 +12,28 @@ namespace CampaignsWithoutNumber.Server.Controllers
 
     [HttpGet]
     [Route("index")]
-    public IEnumerable<Character> Index()
+    public IEnumerable<CharacterDto> Index()
     {
       return _characterService.GetAllCharacters();
     }
 
     [HttpPost]
     [Route("create")]
-    public void Create([FromBody] Character character)
+    public void Create([FromBody] CharacterDto character)
     {
       _characterService.AddCharacter(character);
     }
 
     [HttpGet]
     [Route("details/{id}")]
-    public Character Details(string id)
+    public CharacterDto Details(string id)
     {
       return _characterService.GetCharacterData(id);
     }
 
     [HttpPut]
     [Route("edit")]
-    public void Edit([FromBody] Character character)
+    public void Edit([FromBody] CharacterDto character)
     {
       _characterService.UpdateCharacter(character);
     }
@@ -43,13 +43,6 @@ namespace CampaignsWithoutNumber.Server.Controllers
     public void Delete(string id)
     {
       _characterService.DeleteCharacter(id);
-    }
-
-    [HttpGet]
-    [Route("getitem")]
-    public List<Item> GetItem()
-    {
-      return _characterService.GetCityData();
     }
   }
 }

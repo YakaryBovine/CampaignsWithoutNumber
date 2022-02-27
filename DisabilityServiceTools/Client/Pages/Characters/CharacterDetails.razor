@@ -1,5 +1,5 @@
 ﻿@page "/characterdetails/{Id}"
-@using CampaignsWithoutNumber.Shared.Models
+@using CampaignsWithoutNumber.Shared.DataTransferObjects
 @inject HttpClient _httpClient
 
 <MudCard>
@@ -13,7 +13,7 @@
             <strong>Name:</strong> @Character.Name
         </MudText>
         <MudText Typo="Typo.body1">
-            <strong>Class:</strong> @Character.ClassName
+            <strong>Class:</strong> @Character.Class?.Name
         </MudText>
         <MudText Typo="Typo.body1">
             <strong>Level:</strong> @Character.Level
@@ -28,14 +28,14 @@
 </MudCard>
 
 @code {
-    private Character Character { get; set; } = new();
+    private CharacterDto Character { get; set; } = new();
 
     [Parameter]
     public string Id { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
-        Character = await _httpClient.GetFromJsonAsync<Character>($"api/character/details/{Id}");
+        Character = await _httpClient.GetFromJsonAsync<CharacterDto>($"api/character/details/{Id}");
     }
 
 }
