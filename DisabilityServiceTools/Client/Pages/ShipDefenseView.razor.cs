@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
-using CampaignsWithoutNumber.Shared.Models;
+using CampaignsWithoutNumber.Shared.Entities;
 
 namespace CampaignsWithoutNumber.Client.Pages
 {

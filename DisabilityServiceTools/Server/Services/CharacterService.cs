@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using CampaignsWithoutNumber.Shared.DataTransferObjects;
+using CampaignsWithoutNumber.Shared.Entities;
 using CampaignsWithoutNumber.Shared.Mappers;
-using CampaignsWithoutNumber.Shared.Models;
 using MongoDB.Driver;
 
 namespace CampaignsWithoutNumber.Server.Services

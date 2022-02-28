@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using CampaignsWithoutNumber.Shared.Models;
+using CampaignsWithoutNumber.Shared.Entities;
 using MongoDB.Driver;
 
 namespace CampaignsWithoutNumber.Server.Services

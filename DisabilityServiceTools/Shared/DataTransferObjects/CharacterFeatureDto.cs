@@ -1,7 +1,12 @@
 ﻿namespace CampaignsWithoutNumber.Shared.DataTransferObjects
 {
-  public class CharacterFeatureDto
+  public sealed class CharacterFeatureDto
   {
+    public string Name { get; }
     
+    public CharacterFeatureDto(string name)
+    {
+      Name = name;
+    }
   }
 }

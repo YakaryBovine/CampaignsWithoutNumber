@@ -91,7 +91,7 @@ using CampaignsWithoutNumber.Shared.DataTransferObjects;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 30 "C:\Users\Zak\RiderProjects\CampaignsWithoutNumber\DisabilityServiceTools\Client\Pages\Characters\CharacterDetails.razor"
+#line 33 "C:\Users\Zak\RiderProjects\CampaignsWithoutNumber\DisabilityServiceTools\Client\Pages\Characters\CharacterDetails.razor"
        
     private CharacterDto Character { get; set; } = new();
 

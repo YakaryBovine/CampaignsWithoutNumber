@@ -1,5 +1,5 @@
 ﻿using CampaignsWithoutNumber.Shared.DataTransferObjects;
-using CampaignsWithoutNumber.Shared.Models;
+using CampaignsWithoutNumber.Shared.Entities;
 
 namespace CampaignsWithoutNumber.Shared.Mappers
 {
@@ -18,8 +18,10 @@ namespace CampaignsWithoutNumber.Shared.Mappers
         Name = entity.Name,
         Class = CharacterClassMapper.ToDto(entity.CharacterClass),
         HitPoints = (int) (entity.CharacterClass.HitPointsPerLevel * entity.Level),
-        AttackBonus = (int) (entity.CharacterClass.AttackBonusPerLevel * entity.Level)
+        AttackBonus = (int) (entity.CharacterClass.AttackBonusPerLevel * entity.Level),
+        SkillPoints = 3*entity.Level
       };
+      entity.CharacterClass?.Apply(dto);
       return dto;
     }
 

@@ -12,6 +12,8 @@ namespace CampaignsWithoutNumber.Shared.DataTransferObjects
     
     public int Level { get; set; }
     
+    public int SkillPoints { get; set; }
+    
     [Required(ErrorMessage = "Name is required.")]
     public string Name { get; set; }
     

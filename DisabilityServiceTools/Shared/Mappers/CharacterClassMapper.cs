@@ -1,5 +1,6 @@
-﻿using CampaignsWithoutNumber.Shared.DataTransferObjects;
-using CampaignsWithoutNumber.Shared.Models;
+﻿using System.Collections.Generic;
+using CampaignsWithoutNumber.Shared.DataTransferObjects;
+using CampaignsWithoutNumber.Shared.Entities;
 
 namespace CampaignsWithoutNumber.Shared.Mappers
 {
@@ -7,24 +8,35 @@ namespace CampaignsWithoutNumber.Shared.Mappers
   {
     public static CharacterClass ToEntity(CharacterClassDto dto)
     {
-      return new CharacterClass
+      var entity = new CharacterClass()
       {
         Id = dto.Id,
         Name = dto.Name,
         AttackBonusPerLevel = dto.AttackBonusPerLevel,
-        HitPointsPerLevel = dto.HitPointsPerLevel,
+        HitPointsPerLevel = dto.HitPointsPerLevel
       };
+      foreach (var feature in dto.Features)
+      {
+        entity.Features.Add(CharacterFeatureMapper.ToEntity(feature));
+      }
+      return entity;
     }
 
     public static CharacterClassDto ToDto(CharacterClass entity)
     {
-      return new CharacterClassDto
+      var dto = new CharacterClassDto
       {
         Id = entity.Id,
         Name = entity.Name,
         AttackBonusPerLevel = entity.AttackBonusPerLevel,
-        HitPointsPerLevel = entity.HitPointsPerLevel
+        HitPointsPerLevel = entity.HitPointsPerLevel,
+        Features = new List<CharacterFeatureDto>()
       };
+      foreach (var feature in entity.GetFeatures())
+      {
+        dto.Features.Add(CharacterFeatureMapper.ToDto(feature));
+      }
+      return dto;
     }
   }
 }

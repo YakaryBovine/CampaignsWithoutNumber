@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
-using CampaignsWithoutNumber.Shared.Models;
+using CampaignsWithoutNumber.Shared.DataTransferObjects;
+using CampaignsWithoutNumber.Shared.Entities;
+using CampaignsWithoutNumber.Shared.Mappers;
 using MongoDB.Driver;
 
 namespace CampaignsWithoutNumber.Server.Services
@@ -8,25 +10,30 @@ namespace CampaignsWithoutNumber.Server.Services
   {
     private readonly CampaignDbContext _db = new();
 
-    public IEnumerable<CharacterClass> GetAllCharacterClasss()
+    public IEnumerable<CharacterClassDto> GetAllCharacterClasss()
     {
-      return _db.CharacterClassCollection.Find(_ => true).ToList();
+      var allCharacterClasses = _db.CharacterClassCollection.Find(_ => true).ToList();
+      foreach (var character in allCharacterClasses)
+      {
+        yield return CharacterClassMapper.ToDto(character);
+      }
     }
     
-    public void AddCharacterClass(CharacterClass character)
+    public void AddCharacterClass(CharacterClassDto character)
     {
-      _db.CharacterClassCollection.InsertOne(character);
+      _db.CharacterClassCollection.InsertOne(CharacterClassMapper.ToEntity(character));
     }
     
-    public CharacterClass GetCharacterClassData(string id)
+    public CharacterClassDto GetCharacterClassData(string id)
     {
       var filterCharacterClassData = Builders<CharacterClass>.Filter.Eq("Id", id);
-      return _db.CharacterClassCollection.Find(filterCharacterClassData).FirstOrDefault();
+      var characterClass = _db.CharacterClassCollection.Find(filterCharacterClassData).FirstOrDefault();
+      return CharacterClassMapper.ToDto(characterClass);
     }
     
-    public void UpdateCharacterClass(CharacterClass characterClass)
+    public void UpdateCharacterClass(CharacterClassDto characterClass)
     {
-      _db.CharacterClassCollection.ReplaceOne(g => g.Id == characterClass.Id, characterClass);
+      _db.CharacterClassCollection.ReplaceOne(g => g.Id == characterClass.Id, CharacterClassMapper.ToEntity(characterClass));
     }
 
     public void DeleteCharacterClass(string id)

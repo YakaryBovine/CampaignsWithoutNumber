@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using CampaignsWithoutNumber.Server.Services;
-using CampaignsWithoutNumber.Shared.CharacterFeatures;
-using CampaignsWithoutNumber.Shared.Models;
+using CampaignsWithoutNumber.Shared.DataTransferObjects;
+using CampaignsWithoutNumber.Shared.Entities;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.ResponseCompression;
@@ -58,39 +58,39 @@ namespace CampaignsWithoutNumber.Server
       );
       var characterClassService = new CharacterClassService();
       
-      var warrior = new CharacterClass
+      var warrior = new CharacterClassDto
       {
         Name = "Warrior",
         HitPointsPerLevel = 5.5f,
         AttackBonusPerLevel = 1f,
-        Features = new List<CharacterFeature>
+        Features = new List<CharacterFeatureDto>
         {
-          new VeteransLuck()
+          new("VeteransLuck")
         }
       };
       characterClassService.AddCharacterClass(warrior);
 
-      var expert = new CharacterClass
+      var expert = new CharacterClassDto
       {
         Name = "Expert",
         HitPointsPerLevel = 3.5f,
         AttackBonusPerLevel = 0.5f,
-        Features = new List<CharacterFeature>
+        Features = new List<CharacterFeatureDto>
         {
-          new MasterfulExpertise(),
-          new QuickLearner()
+          new("MasterfulExpertise"),
+          new("QuickLearner")
         }
       };
       characterClassService.AddCharacterClass(expert);
 
-      var psychic = new CharacterClass
+      var psychic = new CharacterClassDto
       {
         Name = "Psychic",
         HitPointsPerLevel = 3.5f,
         AttackBonusPerLevel = 0.5f,
-        Features = new List<CharacterFeature>
+        Features = new List<CharacterFeatureDto>
         {
-          new VeteransLuck()
+          new("VeteransLuck")
         }
       };
       characterClassService.AddCharacterClass(psychic);

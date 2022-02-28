@@ -1,4 +1,7 @@
-﻿namespace CampaignsWithoutNumber.Shared.DataTransferObjects
+﻿using System.Collections.Generic;
+using CampaignsWithoutNumber.Shared.Entities;
+
+namespace CampaignsWithoutNumber.Shared.DataTransferObjects
 {
   public class CharacterClassDto
   {
@@ -9,6 +12,8 @@
     public float AttackBonusPerLevel { get; set; }
     
     public float HitPointsPerLevel { get; set; }
+    
+    public List<CharacterFeatureDto> Features { get; set; }
     
     public override int GetHashCode() => Name?.GetHashCode() ?? 0;
     

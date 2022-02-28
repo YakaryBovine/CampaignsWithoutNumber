@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using CampaignsWithoutNumber.Server.Services;
-using CampaignsWithoutNumber.Shared.Models;
+using CampaignsWithoutNumber.Shared.Entities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CampaignsWithoutNumber.Server.Controllers
