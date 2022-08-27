@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MongoDB.Bson.Serialization;
+using Newtonsoft.Json;
 
 namespace CampaignsWithoutNumber.Server
 {
@@ -21,6 +23,51 @@ namespace CampaignsWithoutNumber.Server
 
     private IConfiguration Configuration { get; }
 
+    // This method gets called by the runtime. Use this method to add services to the container.
+    // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
+    public void ConfigureServices(IServiceCollection services)
+    {
+      services.AddControllersWithViews()
+        .AddNewtonsoftJson(options =>
+          options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+        );
+      services.AddRazorPages();
+      services.AddSignalR();
+      services.AddResponseCompression(opts =>
+      {
+        opts.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(
+          new[] { "application/octet-stream" });
+      });
+      RegisterClassMaps();
+      CreateDummyData();
+    }
+
+    // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+    {
+      if (env.IsDevelopment())
+      {
+        app.UseDeveloperExceptionPage();
+        app.UseWebAssemblyDebugging();
+      }
+      else
+      {
+        app.UseExceptionHandler("/Error");
+      }
+
+      app.UseBlazorFrameworkFiles();
+      app.UseStaticFiles();
+
+      app.UseRouting();
+
+      app.UseEndpoints(endpoints =>
+      {
+        endpoints.MapRazorPages();
+        endpoints.MapControllers();
+        endpoints.MapFallbackToFile("index.html");
+      });
+    }
+    
     private static void CreateDummyData()
     {
       var shipDefenseService = new ShipDefenseService();
@@ -61,49 +108,12 @@ namespace CampaignsWithoutNumber.Server
       CharacterClassManager.Register(new Expert());
       CharacterClassManager.Register(new Psychic());
     }
-
-    // This method gets called by the runtime. Use this method to add services to the container.
-    // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
-    public void ConfigureServices(IServiceCollection services)
+    
+    private static void RegisterClassMaps()
     {
-      services.AddControllersWithViews()
-        .AddNewtonsoftJson(options =>
-          options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
-        );
-      services.AddRazorPages();
-      services.AddSignalR();
-      services.AddResponseCompression(opts =>
-      {
-        opts.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(
-          new[] {"application/octet-stream"});
-      });
-      CreateDummyData();
-    }
-
-    // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-    {
-      if (env.IsDevelopment())
-      {
-        app.UseDeveloperExceptionPage();
-        app.UseWebAssemblyDebugging();
-      }
-      else
-      {
-        app.UseExceptionHandler("/Error");
-      }
-
-      app.UseBlazorFrameworkFiles();
-      app.UseStaticFiles();
-
-      app.UseRouting();
-
-      app.UseEndpoints(endpoints =>
-      {
-        endpoints.MapRazorPages();
-        endpoints.MapControllers();
-        endpoints.MapFallbackToFile("index.html");
-      });
+      BsonClassMap.RegisterClassMap<Warrior>();
+      BsonClassMap.RegisterClassMap<Psychic>();
+      BsonClassMap.RegisterClassMap<Expert>();
     }
   }
 }
