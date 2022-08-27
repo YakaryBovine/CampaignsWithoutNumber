@@ -1,11 +1,15 @@
 ﻿using System.Collections.Generic;
+using CampaignsWithoutNumber.Shared.Classes;
 using CampaignsWithoutNumber.Shared.DataTransferObjects;
 using CampaignsWithoutNumber.Shared.Entities;
+using CampaignsWithoutNumber.Shared.Managers;
 
 namespace CampaignsWithoutNumber.Shared.Mappers
 {
   public static class CharacterClassMapper
   {
+    public static ICharacterClass ToEntity(CharacterClassDto dto) => CharacterClassManager.GetById(dto.Id);
+
     public static CharacterClassDto ToDto(ICharacterClass entity)
     {
       var dto = new CharacterClassDto

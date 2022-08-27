@@ -1,8 +1,8 @@
 ﻿using System.Linq;
-using CampaignsWithoutNumber.Server.Managers;
 using CampaignsWithoutNumber.Server.Services;
 using CampaignsWithoutNumber.Shared.Classes;
 using CampaignsWithoutNumber.Shared.Entities;
+using CampaignsWithoutNumber.Shared.Managers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.ResponseCompression;

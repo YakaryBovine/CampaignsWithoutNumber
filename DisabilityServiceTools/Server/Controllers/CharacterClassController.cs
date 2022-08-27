@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using CampaignsWithoutNumber.Server.Managers;
 using CampaignsWithoutNumber.Shared.DataTransferObjects;
+using CampaignsWithoutNumber.Shared.Managers;
 using CampaignsWithoutNumber.Shared.Mappers;
 using Microsoft.AspNetCore.Mvc;
 

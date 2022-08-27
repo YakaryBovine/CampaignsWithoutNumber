@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using CampaignsWithoutNumber.Shared;
 
-namespace CampaignsWithoutNumber.Server.Managers
+namespace CampaignsWithoutNumber.Shared.Managers
 {
   public static class CharacterClassManager
   {
