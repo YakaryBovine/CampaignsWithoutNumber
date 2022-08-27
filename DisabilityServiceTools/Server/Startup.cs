@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
+using CampaignsWithoutNumber.Server.Managers;
 using CampaignsWithoutNumber.Server.Services;
-using CampaignsWithoutNumber.Shared.DataTransferObjects;
+using CampaignsWithoutNumber.Shared.Classes;
 using CampaignsWithoutNumber.Shared.Entities;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -56,44 +56,10 @@ namespace CampaignsWithoutNumber.Server
           be applied as a penalty to all Pilot tests."
         }
       );
-      var characterClassService = new CharacterClassService();
-      
-      var warrior = new CharacterClassDto
-      {
-        Name = "Warrior",
-        HitPointsPerLevel = 5.5f,
-        AttackBonusPerLevel = 1f,
-        Features = new List<CharacterFeatureDto>
-        {
-          new("VeteransLuck")
-        }
-      };
-      characterClassService.AddCharacterClass(warrior);
 
-      var expert = new CharacterClassDto
-      {
-        Name = "Expert",
-        HitPointsPerLevel = 3.5f,
-        AttackBonusPerLevel = 0.5f,
-        Features = new List<CharacterFeatureDto>
-        {
-          new("MasterfulExpertise"),
-          new("QuickLearner")
-        }
-      };
-      characterClassService.AddCharacterClass(expert);
-
-      var psychic = new CharacterClassDto
-      {
-        Name = "Psychic",
-        HitPointsPerLevel = 3.5f,
-        AttackBonusPerLevel = 0.5f,
-        Features = new List<CharacterFeatureDto>
-        {
-          new("VeteransLuck")
-        }
-      };
-      characterClassService.AddCharacterClass(psychic);
+      CharacterClassManager.Register(new Warrior());
+      CharacterClassManager.Register(new Expert());
+      CharacterClassManager.Register(new Psychic());
     }
 
     // This method gets called by the runtime. Use this method to add services to the container.

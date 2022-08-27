@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
-using CampaignsWithoutNumber.Server.Services;
+using System.Linq;
+using CampaignsWithoutNumber.Server.Managers;
 using CampaignsWithoutNumber.Shared.DataTransferObjects;
-using CampaignsWithoutNumber.Shared.Entities;
+using CampaignsWithoutNumber.Shared.Mappers;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CampaignsWithoutNumber.Server.Controllers
@@ -9,41 +10,18 @@ namespace CampaignsWithoutNumber.Server.Controllers
   [Route("api/characterclass")]
   public class CharacterClassController : Controller
   {
-    private readonly CharacterClassService _characterClassService = new();
-
     [HttpGet]
     [Route("index")]
-    public IEnumerable<CharacterClassDto> Index()
+    public List<CharacterClassDto> Index()
     {
-      return _characterClassService.GetAllCharacterClasss();
-    }
-
-    [HttpPost]
-    [Route("create")]
-    public void Create([FromBody] CharacterClassDto character)
-    {
-      _characterClassService.AddCharacterClass(character);
+      return CharacterClassManager.GetAll().Select(CharacterClassMapper.ToDto).ToList();
     }
 
     [HttpGet]
-    [Route("details/{id}")]
-    public CharacterClassDto Details(string id)
+    [Route("details/{id:int}")]
+    public CharacterClassDto Details(int id)
     {
-      return _characterClassService.GetCharacterClassData(id);
-    }
-
-    [HttpPut]
-    [Route("edit")]
-    public void Edit([FromBody] CharacterClassDto character)
-    {
-      _characterClassService.UpdateCharacterClass(character);
-    }
-
-    [HttpDelete]
-    [Route("delete/{id}")]
-    public void Delete(string id)
-    {
-      _characterClassService.DeleteCharacterClass(id);
+      return CharacterClassMapper.ToDto(CharacterClassManager.GetById(id));
     }
   }
 }

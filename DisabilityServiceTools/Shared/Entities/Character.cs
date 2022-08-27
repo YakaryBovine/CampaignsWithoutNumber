@@ -11,7 +11,7 @@ namespace CampaignsWithoutNumber.Shared.Entities
     
     public string Name { get; set; }
 
-    public CharacterClass CharacterClass { get; set; }
+    public ICharacterClass CharacterClass { get; set; }
 
     public int Level { get; set; }
 

@@ -31,8 +31,7 @@ namespace CampaignsWithoutNumber.Shared.Mappers
       {
         Id = dto.Id,
         Level = dto.Level,
-        Name = dto.Name,
-        CharacterClass = CharacterClassMapper.ToEntity(dto.Class)
+        Name = dto.Name
       };
       return entity;
     }

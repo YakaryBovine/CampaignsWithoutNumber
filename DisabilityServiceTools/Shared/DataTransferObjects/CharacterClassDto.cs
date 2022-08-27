@@ -3,20 +3,18 @@ using CampaignsWithoutNumber.Shared.Entities;
 
 namespace CampaignsWithoutNumber.Shared.DataTransferObjects
 {
-  public class CharacterClassDto
+  public sealed class CharacterClassDto
   {
-    public string Id { get; set; }
+    public int Id { get; set; }
 
     public string Name { get; set; }
     
     public float AttackBonusPerLevel { get; set; }
     
     public float HitPointsPerLevel { get; set; }
-    
-    public List<CharacterFeatureDto> Features { get; set; }
-    
-    public override int GetHashCode() => Name?.GetHashCode() ?? 0;
-    
+
+    public List<CharacterFeatureDto> Features { get; set; } = new();
+
     public override string ToString() => Name;
   }
 }

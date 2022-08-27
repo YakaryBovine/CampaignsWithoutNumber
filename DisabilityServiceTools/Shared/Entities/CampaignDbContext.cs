@@ -9,7 +9,7 @@ namespace CampaignsWithoutNumber.Shared.Entities
     public CampaignDbContext()
     {
       var settings = MongoClientSettings.FromConnectionString(
-        "mongodb+srv://YakaryBovine:coolNewPassword@campaignswithoutnumber.icyn6.mongodb.net/campaignDb?retryWrites=true&w=majority");
+        "mongodb+srv://YakaryBovine:AvNb6iVw9JROAXkD@campaignswithoutnumber.icyn6.mongodb.net/?retryWrites=true&w=majority");
       settings.ServerApi = new ServerApi(ServerApiVersion.V1);
       var client = new MongoClient(settings);
       _mongoDatabase = client.GetDatabase("campaignDb");
@@ -20,7 +20,5 @@ namespace CampaignsWithoutNumber.Shared.Entities
     public IMongoCollection<Item> ItemCollection => _mongoDatabase.GetCollection<Item>("item");
     
     public IMongoCollection<ShipDefense> ShipDefenseCollection => _mongoDatabase.GetCollection<ShipDefense>("shipDefense");
-    
-    public IMongoCollection<CharacterClass> CharacterClassCollection => _mongoDatabase.GetCollection<CharacterClass>("characterClass");
   }
 }
