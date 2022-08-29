@@ -24,7 +24,7 @@ namespace CampaignsWithoutNumber.Client.Pages.Characters
     [Parameter] 
     public EventCallback OnSelectedClassesChanged { get; set; }
 
-    private void SelectedClassesChanged(HashSet<CharacterClassDto> values)
+    private void SelectedClassesChanged(IEnumerable<CharacterClassDto> values)
     {
       Character.Classes = values.ToList();
       OnSelectedClassesChanged.InvokeAsync(values);
