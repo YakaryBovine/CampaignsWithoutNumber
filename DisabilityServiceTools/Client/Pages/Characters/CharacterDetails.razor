@@ -2,17 +2,17 @@
 @inject HttpClient HttpClient
 
 <MudToolBar>
-    <MudIconButton Icon="@Icons.Material.Outlined.Menu" Color="Color.Inherit" Class="mr-5" />
+    <MudIconButton Icon="@Icons.Material.Outlined.Menu" Color="Color.Inherit" Class="mr-5"/>
     <MudText Typo="Typo.h6">@Character.Name</MudText>
-    <MudSpacer />
-    <MudIconButton Icon="@Icons.Material.Outlined.Add" />
-    <MudIconButton Icon="@Icons.Material.Outlined.Edit" />
-    <MudIconButton Icon="@Icons.Material.Outlined.Remove" Color="Color.Inherit" />
-    <MudIconButton Icon="@Icons.Material.Outlined.Settings" Color="Color.Inherit" />
-    <MudIconButton Icon="@Icons.Material.Outlined.Notifications" />
-    <MudIconButton Icon="@Icons.Material.Outlined.PushPin" />
-    <MudIconButton Icon="@Icons.Material.Outlined.PeopleAlt" />
-    <MudIconButton Icon="@Icons.Material.Outlined.MoreVert" Color="Color.Inherit" />
+    <MudSpacer/>
+    <MudIconButton Icon="@Icons.Material.Outlined.Add"/>
+    <MudIconButton Icon="@Icons.Material.Outlined.Edit"/>
+    <MudIconButton Icon="@Icons.Material.Outlined.Remove" Color="Color.Inherit"/>
+    <MudIconButton Icon="@Icons.Material.Outlined.Settings" Color="Color.Inherit"/>
+    <MudIconButton Icon="@Icons.Material.Outlined.Notifications"/>
+    <MudIconButton Icon="@Icons.Material.Outlined.PushPin"/>
+    <MudIconButton Icon="@Icons.Material.Outlined.PeopleAlt"/>
+    <MudIconButton Icon="@Icons.Material.Outlined.MoreVert" Color="Color.Inherit"/>
 </MudToolBar>
 
 <MudTabs Elevation="2" Rounded="true" ApplyEffectsToContainer="true" PanelClass="pa-6">
@@ -53,7 +53,7 @@
                     <MudText Typo="Typo.h6">Attributes</MudText>
                 </CardHeaderContent>
             </MudCardHeader>
-            
+
             <MudCardContent>
                 <MudText>Story of the day</MudText>
                 <MudText Typo="Typo.body2">The quick, brown fox jumps over a lazy dog.</MudText>
@@ -62,17 +62,17 @@
                 <MudButton Variant="Variant.Text" Color="Color.Primary">Learn More</MudButton>
             </MudCardActions>
         </MudCard>
-        
-        <ClassesCard OnSelectedClassesChanged="Save" Character="Character">
+
+        <ClassesCard OnClose="Save" Character="Character">
         </ClassesCard>
-        
+
         <MudCard Outlined="true">
             <MudCardHeader>
                 <CardHeaderContent>
                     <MudText Typo="Typo.h6">Foci</MudText>
                 </CardHeaderContent>
             </MudCardHeader>
-            
+
             <MudCardContent>
                 <MudText>Story of the day</MudText>
                 <MudText Typo="Typo.body2">The quick, brown fox jumps over a lazy dog.</MudText>

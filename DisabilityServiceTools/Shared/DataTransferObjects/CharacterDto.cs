@@ -17,7 +17,7 @@ namespace CampaignsWithoutNumber.Shared.DataTransferObjects
 
     [Required(ErrorMessage = "Name is required.")]
     public string Name { get; set; }
-    
-    public List<CharacterClassDto>? Classes { get; set; }
+
+    public IEnumerable<CharacterClassDto>? Classes { get; set; }
   }
 }

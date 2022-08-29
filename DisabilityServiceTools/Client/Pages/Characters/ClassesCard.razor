@@ -7,10 +7,10 @@
             <MudText Typo="Typo.h6">Classes</MudText>
         </CardHeaderContent>
     </MudCardHeader>
-    
+
     <MudCardContent>
-        <MudSelect T="CharacterClassDto" ToStringFunc="@_converter" Label="Choose one or more classes" MultiSelection="true" 
-                   SelectedValuesChanged="SelectedClassesChanged">
+        <MudSelect T="CharacterClassDto" Label="Choose one or more classes" MultiSelection="true"
+                   OnClose="Closed" @bind-SelectedValues="Character.Classes" Counter="5">
             @foreach (var characterClass in _characterClasses)
             {
                 <MudSelectItem Value="@characterClass">@characterClass</MudSelectItem>
