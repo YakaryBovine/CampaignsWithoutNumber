@@ -1,5 +1,4 @@
 ﻿@page "/characterdetails/{Id}"
-@using CampaignsWithoutNumber.Shared.DataTransferObjects
 @inject HttpClient HttpClient
 
 <MudToolBar>
@@ -21,7 +20,7 @@
         <MudCard>
             <MudCardContent>
                 <MudText Typo="Typo.body1">
-                    <strong>Class:</strong> @Character.Class?.Name
+                    <strong>Class:</strong> @Character.Classes?.FirstOrDefault()?.Name
                 </MudText>
                 <MudText Typo="Typo.body1">
                     <strong>Level:</strong> @Character.Level
@@ -64,7 +63,7 @@
             </MudCardActions>
         </MudCard>
         
-        <ClassesCard>
+        <ClassesCard OnSelectedClassesChanged="Save" Character="Character">
         </ClassesCard>
         
         <MudCard Outlined="true">
@@ -84,16 +83,3 @@
         </MudCard>
     </MudTabPanel>
 </MudTabs>
-
-@code {
-    private CharacterDto Character { get; set; } = new();
-
-    [Parameter]
-    public string Id { get; set; }
-
-    protected override async Task OnInitializedAsync()
-    {
-        Character = await HttpClient.GetFromJsonAsync<CharacterDto>($"api/character/details/{Id}");
-    }
-
-}

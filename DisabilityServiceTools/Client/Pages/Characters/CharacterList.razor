@@ -1,5 +1,5 @@
 ﻿@page "/characterlist"
-@inject HttpClient _httpClient
+@inject HttpClient HttpClient
 
 <MudTooltip Text="Create Character">
     <MudLink Href="/charactercreate">
@@ -17,7 +17,7 @@
         <MudTd DataLabel="Name">
             <MudLink Href="@($"characterdetails/{context.Id}")">@context.Name</MudLink>
         </MudTd>
-        <MudTd DataLabel="Class">@context.Class?.Name</MudTd>
+        <MudTd DataLabel="Class">@context.Classes?.FirstOrDefault()?.Name</MudTd>
         <MudTd DataLabel="Level">@context.Level</MudTd>
     </RowTemplate>
 </MudTable>

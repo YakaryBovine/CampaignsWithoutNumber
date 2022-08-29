@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace CampaignsWithoutNumber.Shared.DataTransferObjects
 {
@@ -16,8 +17,7 @@ namespace CampaignsWithoutNumber.Shared.DataTransferObjects
 
     [Required(ErrorMessage = "Name is required.")]
     public string Name { get; set; }
-
-    [Required(ErrorMessage = "Class is required.")]
-    public CharacterClassDto Class { get; set; }
+    
+    public List<CharacterClassDto>? Classes { get; set; }
   }
 }

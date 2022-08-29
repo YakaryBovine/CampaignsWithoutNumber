@@ -31,7 +31,7 @@ namespace CampaignsWithoutNumber.Server.Controllers
       return _characterService.GetCharacterData(id);
     }
 
-    [HttpPut]
+    [HttpPut("{character}")]
     [Route("edit")]
     public void Edit([FromBody] CharacterDto character)
     {

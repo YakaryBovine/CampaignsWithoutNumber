@@ -11,7 +11,7 @@ namespace CampaignsWithoutNumber.Client.Pages.Characters
 
     protected override async Task OnInitializedAsync()
     {
-      _characters = await _httpClient.GetFromJsonAsync<List<CharacterDto>>("api/character/index");
+      _characters = await HttpClient.GetFromJsonAsync<List<CharacterDto>>("api/character/index");
     }
   }
 }

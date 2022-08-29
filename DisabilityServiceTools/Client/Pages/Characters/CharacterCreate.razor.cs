@@ -17,7 +17,7 @@ namespace CampaignsWithoutNumber.Client.Pages.Characters
 
     private async Task Create()
     {
-      await _httpClient.PostAsJsonAsync("api/character/create", _character);
+      await HttpClient.PostAsJsonAsync("api/character/create", _character);
       await ExecuteDialog();
     }
 
@@ -41,7 +41,7 @@ namespace CampaignsWithoutNumber.Client.Pages.Characters
     
     protected override async Task OnInitializedAsync()
     {
-      _characterClasses = await _httpClient.GetFromJsonAsync<List<CharacterClassDto>>("api/characterclass/index");
+      _characterClasses = await HttpClient.GetFromJsonAsync<List<CharacterClassDto>>("api/characterclass/index");
     }
   }
 }

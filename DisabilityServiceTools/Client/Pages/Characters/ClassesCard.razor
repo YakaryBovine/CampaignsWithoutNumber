@@ -9,7 +9,8 @@
     </MudCardHeader>
     
     <MudCardContent>
-        <MudSelect T="CharacterClassDto" ToStringFunc="@_converter" Label="Choose one or more classes" MultiSelection="true" @bind-Value="_value" @bind-SelectedValues="_selectedValues">
+        <MudSelect T="CharacterClassDto" ToStringFunc="@_converter" Label="Choose one or more classes" MultiSelection="true" 
+                   SelectedValuesChanged="SelectedClassesChanged">
             @foreach (var characterClass in _characterClasses)
             {
                 <MudSelectItem Value="@characterClass">@characterClass</MudSelectItem>

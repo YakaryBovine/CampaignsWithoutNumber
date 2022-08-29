@@ -1,4 +1,5 @@
-﻿using CampaignsWithoutNumber.Shared.DataTransferObjects;
+﻿using System.Linq;
+using CampaignsWithoutNumber.Shared.DataTransferObjects;
 using CampaignsWithoutNumber.Shared.Entities;
 
 namespace CampaignsWithoutNumber.Shared.Mappers
@@ -16,12 +17,12 @@ namespace CampaignsWithoutNumber.Shared.Mappers
         Id = entity.Id,
         Level = entity.Level,
         Name = entity.Name,
-        Class = CharacterClassMapper.ToDto(entity.CharacterClass),
-        HitPoints = (int) (entity.CharacterClass.HitPointsPerLevel * entity.Level),
-        AttackBonus = (int) (entity.CharacterClass.AttackBonusPerLevel * entity.Level),
+        Classes = entity.CharacterClasses?.Select(CharacterClassMapper.ToDto).ToList(),
+        HitPoints = 5,
+        AttackBonus = 5,
         SkillPoints = 3*entity.Level
       };
-      entity.CharacterClass?.Apply(dto);
+      //entity.CharacterClass?.Apply(dto);
       return dto;
     }
 
@@ -32,7 +33,7 @@ namespace CampaignsWithoutNumber.Shared.Mappers
         Id = dto.Id,
         Level = dto.Level,
         Name = dto.Name,
-        CharacterClass = CharacterClassMapper.ToEntity(dto.Class),
+        CharacterClasses = dto.Classes?.Select(CharacterClassMapper.ToEntity).ToList()
       };
       return entity;
     }
