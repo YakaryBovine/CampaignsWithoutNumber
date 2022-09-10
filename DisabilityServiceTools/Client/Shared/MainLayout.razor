@@ -1,32 +1,48 @@
 ﻿@inherits LayoutComponentBase
 
-<MudThemeProvider Theme="_disabilityServiceTheme" />
+<MudThemeProvider Theme="_purpleTheme"/>
 <MudDialogProvider/>
-<MudSnackbarProvider />
+<MudSnackbarProvider/>
 
-<div style="        background-image: none; background-color: rgb(5,82,59);" class="sidebar">
-    <NavMenu />
-</div>
+<MudLayout>
+    <MudAppBar>
+        <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@(_ => DrawerToggle())"/>
+        Campaigns Without Number
+    </MudAppBar>
+    
+    <MudDrawer @bind-Open="@_drawerOpen">
+        <NavMenu/>
+    </MudDrawer>
 
-<div class="main">
-    @Body
-</div>
+    <MudMainContent>
+        @Body
+    </MudMainContent>
+</MudLayout>
 
 @code{
 
-    readonly MudTheme _disabilityServiceTheme = new()
+    readonly MudTheme _purpleTheme = new()
     {
         Palette = new Palette
         {
-            Primary = Colors.Green.Default,
-            Secondary = Colors.Green.Lighten1,
-            AppbarBackground = Colors.Green.Accent1,
+            Primary = Colors.DeepPurple.Default,
+            Secondary = Colors.DeepPurple.Lighten1,
+            AppbarBackground = Colors.DeepPurple.Default,
         },
-
         LayoutProperties = new LayoutProperties
         {
             DrawerWidthLeft = "260px",
             DrawerWidthRight = "300px"
         }
     };
+
+}
+
+@code {
+    bool _drawerOpen = true;
+
+    void DrawerToggle()
+    {
+        _drawerOpen = !_drawerOpen;
+    }
 }
