@@ -65,11 +65,14 @@
 
         <ClassesCard OnClose="Save" Character="Character">
         </ClassesCard>
-        
-        @if (Character.Classes?.FirstOrDefault()?.Arts != null)
+
+        @if (Character.Classes != null)
         {
-            <ArtsCard OnClose="Save" Character="Character">
-            </ArtsCard>
+            foreach (var characterClass in Character.Classes.Where(x => x.Arts.Any()))
+            {
+                <ArtsCard OnClose="@Save" Character="@Character" CharacterClass="@characterClass">
+                </ArtsCard>
+            }
         }
         
         <MudCard Outlined="true">

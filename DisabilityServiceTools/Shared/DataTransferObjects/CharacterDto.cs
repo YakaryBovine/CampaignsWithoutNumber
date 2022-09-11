@@ -21,5 +21,7 @@ namespace CampaignsWithoutNumber.Shared.DataTransferObjects
     public IEnumerable<CharacterClassDto>? Classes { get; set; }
     
     public IEnumerable<ArtDto> Arts { get; set; }
+    
+    public Dictionary<int, List<ArtDto>> SelectedArts { get; set; }
   }
 }

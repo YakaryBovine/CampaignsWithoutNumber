@@ -15,6 +15,8 @@ public partial class ArtsCard
   
   [Parameter] public CharacterDto Character { get; set; }
 
+  [Parameter] public CharacterClassDto CharacterClass { get; set; }
+  
   [Parameter] public EventCallback OnClose { get; set; }
 
   private void Closed()

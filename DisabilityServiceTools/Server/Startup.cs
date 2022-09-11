@@ -72,6 +72,7 @@ namespace CampaignsWithoutNumber.Server
       CharacterClassManager.Register(new Expert());
       CharacterClassManager.Register(new Psychic());
       CharacterClassManager.Register(new Warlock());
+      CharacterClassManager.Register(new HighMage());
     }
     
     private static void RegisterClassMaps()
@@ -80,6 +81,7 @@ namespace CampaignsWithoutNumber.Server
       BsonClassMap.RegisterClassMap<Psychic>();
       BsonClassMap.RegisterClassMap<Expert>();
       BsonClassMap.RegisterClassMap<Warlock>();
+      BsonClassMap.RegisterClassMap<HighMage>();
     }
   }
 }
