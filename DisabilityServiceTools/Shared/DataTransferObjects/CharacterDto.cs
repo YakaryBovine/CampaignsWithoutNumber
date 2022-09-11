@@ -18,10 +18,20 @@ namespace CampaignsWithoutNumber.Shared.DataTransferObjects
 		[Required(ErrorMessage = "Name is required.")]
 		public string? Name { get; set; }
 
+		/// <summary>
+		/// How many readied items this character can hold without slowing down.
+		/// </summary>
+		public int ReadiedItemCapacity { get; set; }
+
+		/// <summary>
+		/// How many stowed items this character can hold without slowing down.
+		/// </summary>
+		public int StowedItemCapacity { get; set; }
+
 		public IEnumerable<CharacterClassDto>? Classes { get; set; }
 
 		public List<ActionDto>? Actions { get; set; }
-
+		
 		/// <summary>
 		/// Attributes which help determine this character's core statistics.
 		/// </summary>

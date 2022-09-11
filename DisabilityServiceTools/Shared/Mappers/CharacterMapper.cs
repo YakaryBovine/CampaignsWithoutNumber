@@ -35,6 +35,12 @@ namespace CampaignsWithoutNumber.Shared.Mappers
 				foreach (var art in arts) art.Apply(dto);
 			}
 
+			if (entity.Attributes != null)
+				foreach (var attribute in entity.Attributes)
+				{
+					attribute.Apply(dto);
+				}
+
 			return dto;
 		}
 

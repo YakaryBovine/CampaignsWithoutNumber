@@ -34,6 +34,12 @@
                 <MudText Typo="Typo.body1">
                     <strong>Skill points:</strong> @Character.SkillPoints
                 </MudText>
+                <MudText Typo="Typo.body1">
+                    <strong>Readied item capacity:</strong> @Character.ReadiedItemCapacity
+                </MudText>
+                <MudText Typo="Typo.body1">
+                    <strong>Stowed item capacity:</strong> @Character.StowedItemCapacity
+                </MudText>
             </MudCardContent>
         </MudCard>
     </MudTabPanel>
@@ -44,13 +50,13 @@
     }
     <MudTabPanel Text="Build">
         <AttributesCard Attributes="Character.Attributes"></AttributesCard>
-        
+
         <ClassesCard OnClose="Save" Character="Character">
         </ClassesCard>
 
         @if (Character.Classes != null)
         {
-            foreach (var characterClass in Character.Classes.Where(x => x.Arts.Any()))
+            foreach (var characterClass in Character.Classes.Where(x => x.Arts?.Any() == true))
             {
                 <ArtsCard OnClose="@Save" CharacterClass="@characterClass">
                 </ArtsCard>

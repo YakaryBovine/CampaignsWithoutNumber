@@ -8,7 +8,8 @@ namespace CampaignsWithoutNumber.Shared.Entities.Attributes
 		
 		public void Apply(CharacterDto character)
 		{
-			
+			character.StowedItemCapacity += Value;
+			character.ReadiedItemCapacity += Value / 2;
 		}
 
 		public int Value { get; set; }
