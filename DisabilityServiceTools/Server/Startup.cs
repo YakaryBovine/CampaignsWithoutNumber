@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using CampaignsWithoutNumber.Shared.Arts;
 using CampaignsWithoutNumber.Shared.Classes;
 using CampaignsWithoutNumber.Shared.Managers;
 using Microsoft.AspNetCore.Builder;
@@ -73,6 +74,9 @@ namespace CampaignsWithoutNumber.Server
       CharacterClassManager.Register(new Psychic());
       CharacterClassManager.Register(new Warlock());
       CharacterClassManager.Register(new HighMage());
+
+      ArtManager.Register(new AccursedBlade());
+      ArtManager.Register(new ArcaneLexicon());
     }
     
     private static void RegisterClassMaps()
@@ -82,6 +86,9 @@ namespace CampaignsWithoutNumber.Server
       BsonClassMap.RegisterClassMap<Expert>();
       BsonClassMap.RegisterClassMap<Warlock>();
       BsonClassMap.RegisterClassMap<HighMage>();
+
+      BsonClassMap.RegisterClassMap<AccursedBlade>();
+      BsonClassMap.RegisterClassMap<ArcaneLexicon>();
     }
   }
 }

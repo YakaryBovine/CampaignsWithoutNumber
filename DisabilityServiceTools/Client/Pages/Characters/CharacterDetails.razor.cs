@@ -12,12 +12,18 @@ namespace CampaignsWithoutNumber.Client.Pages.Characters
     [Parameter]
     public string Id { get; set; }
     
-    private async void Save()
+    private async Task Save()
     {
       await HttpClient.PostAsJsonAsync("api/character/edit", Character);
+      await Fetch();
     }
     
     protected override async Task OnInitializedAsync()
+    {
+      await Fetch();
+    }
+
+    private async Task Fetch()
     {
       Character = await HttpClient.GetFromJsonAsync<CharacterDto>($"api/character/details/{Id}");
     }

@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using CampaignsWithoutNumber.Shared.DataTransferObjects;
 using CampaignsWithoutNumber.Shared.Entities;
 
@@ -23,7 +24,16 @@ namespace CampaignsWithoutNumber.Shared.Mappers
         SkillPoints = 3*entity.Level,
         Arts = entity.Arts?.Select(ArtMapper.ToDto).ToList()
       };
-      //entity.CharacterClass?.Apply(dto);
+
+      if (entity.Arts != null)
+      {
+        foreach (var art in entity.Arts)
+        {
+          art.Apply(dto);
+        }
+        //entity.CharacterClass?.Apply(dto);
+      }
+
       return dto;
     }
 

@@ -1,18 +1,19 @@
 ﻿using CampaignsWithoutNumber.Shared.DataTransferObjects;
 using CampaignsWithoutNumber.Shared.Entities;
+using CampaignsWithoutNumber.Shared.Managers;
 
 namespace CampaignsWithoutNumber.Shared.Mappers
 {
 	public static class ArtMapper
 	{
-		public static Art ToEntity(ArtDto dto)
+		public static IArt ToEntity(ArtDto dto)
 		{
-			return new Art(dto.Name, dto.Description);
+			return ArtManager.GetById(dto.Id);
 		}
 		
-		public static ArtDto ToDto(Art entity)
+		public static ArtDto ToDto(IArt entity)
 		{
-			return new ArtDto
+			return new ArtDto(entity.Id)
 			{
 				Name = entity.Name,
 				Description = entity.Description

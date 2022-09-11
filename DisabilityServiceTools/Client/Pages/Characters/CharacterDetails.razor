@@ -37,32 +37,12 @@
             </MudCardContent>
         </MudCard>
     </MudTabPanel>
-    <MudTabPanel Text="Actions">
-        <MudText>Content Two</MudText>
-    </MudTabPanel>
-    <MudTabPanel Text="Features">
-        <MudText>Content Three</MudText>
-    </MudTabPanel>
-    <MudTabPanel Text="Inventory" Disabled="true">
-        <MudText>Content Disabled</MudText>
-    </MudTabPanel>
+    
+    @if (Character.Actions?.Any() == true)
+    {
+        <ActionsTab Character="Character"></ActionsTab>
+    }
     <MudTabPanel Text="Build">
-        <MudCard Outlined="true">
-            <MudCardHeader>
-                <CardHeaderContent>
-                    <MudText Typo="Typo.h6">Attributes</MudText>
-                </CardHeaderContent>
-            </MudCardHeader>
-
-            <MudCardContent>
-                <MudText>Story of the day</MudText>
-                <MudText Typo="Typo.body2">The quick, brown fox jumps over a lazy dog.</MudText>
-            </MudCardContent>
-            <MudCardActions>
-                <MudButton Variant="Variant.Text" Color="Color.Primary">Learn More</MudButton>
-            </MudCardActions>
-        </MudCard>
-
         <ClassesCard OnClose="Save" Character="Character">
         </ClassesCard>
 
@@ -74,21 +54,5 @@
                 </ArtsCard>
             }
         }
-        
-        <MudCard Outlined="true">
-            <MudCardHeader>
-                <CardHeaderContent>
-                    <MudText Typo="Typo.h6">Foci</MudText>
-                </CardHeaderContent>
-            </MudCardHeader>
-
-            <MudCardContent>
-                <MudText>Story of the day</MudText>
-                <MudText Typo="Typo.body2">The quick, brown fox jumps over a lazy dog.</MudText>
-            </MudCardContent>
-            <MudCardActions>
-                <MudButton Variant="Variant.Text" Color="Color.Primary">Learn More</MudButton>
-            </MudCardActions>
-        </MudCard>
     </MudTabPanel>
 </MudTabs>

@@ -17,7 +17,7 @@ namespace CampaignsWithoutNumber.Shared
     /// <summary>
     /// Class-specific Arts that a player can select if they have this class.
     /// </summary>
-    public List<Art> Arts { get; }
+    public List<IArt> Arts { get; }
     
     public int Id { get; }
 

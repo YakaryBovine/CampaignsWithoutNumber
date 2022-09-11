@@ -15,6 +15,6 @@ namespace CampaignsWithoutNumber.Shared.Classes
 
     public int Id => 3;
     
-    public List<Art> Arts { get; } = new();
+    public List<IArt> Arts { get; } = new();
   }
 }

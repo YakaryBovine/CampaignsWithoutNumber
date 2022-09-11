@@ -13,9 +13,7 @@ namespace CampaignsWithoutNumber.Shared.Entities
 
     public List<ICharacterClass>? CharacterClasses { get; set; }
 
-    public Dictionary<int, List<Art>> SelectedArts { get; set; }
-    
-    public List<Art> Arts { get; set; }
+    public List<IArt> Arts { get; set; } = new();
     
     public int Level { get; set; }
   }
