@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using CampaignsWithoutNumber.Shared.DataTransferObjects;
 using CampaignsWithoutNumber.Shared.Entities;
+using CampaignsWithoutNumber.Shared.Managers;
 
 namespace CampaignsWithoutNumber.Shared.Mappers
 {
@@ -9,7 +10,6 @@ namespace CampaignsWithoutNumber.Shared.Mappers
 		/// <summary>
 		///    Converts a <see cref="Character" /> entity into a <see cref="CharacterDto" />.
 		/// </summary>
-		/// <returns></returns>
 		public static CharacterDto ToDto(Character entity)
 		{
 			var dto = new CharacterDto
@@ -20,16 +20,20 @@ namespace CampaignsWithoutNumber.Shared.Mappers
 				Classes = entity.CharacterClasses?.Select(CharacterClassMapper.ToDto).ToList(),
 				HitPoints = 5,
 				AttackBonus = 5,
-				SkillPoints = 3 * entity.Level
+				SkillPoints = 3 * entity.Level,
+				Attributes = entity.Attributes?.Select(AttributeMapper.ToDto)
 			};
 
-			if (entity.CharacterClasses == null) return dto;
+			dto.Attributes ??= AttributeManager.GetAll().Select(AttributeMapper.ToDto);
+			
+			if (entity.CharacterClasses != null)
+			{
+				var arts = entity.CharacterClasses
+					.Where(characterClass => characterClass.SelectedArts != null)
+					.SelectMany(characterClass => characterClass.SelectedArts);
 
-			var arts = entity.CharacterClasses
-				.Where(characterClass => characterClass.SelectedArts != null)
-				.SelectMany(characterClass => characterClass.SelectedArts);
-
-			foreach (var art in arts) art.Apply(dto);
+				foreach (var art in arts) art.Apply(dto);
+			}
 
 			return dto;
 		}
@@ -41,7 +45,8 @@ namespace CampaignsWithoutNumber.Shared.Mappers
 				Id = dto.Id,
 				Level = dto.Level,
 				Name = dto.Name,
-				CharacterClasses = dto.Classes?.Select(CharacterClassMapper.ToEntity).ToList()
+				CharacterClasses = dto.Classes?.Select(CharacterClassMapper.ToEntity).ToList(),
+				Attributes = dto.Attributes?.Select(AttributeMapper.ToEntity)
 			};
 			return entity;
 		}

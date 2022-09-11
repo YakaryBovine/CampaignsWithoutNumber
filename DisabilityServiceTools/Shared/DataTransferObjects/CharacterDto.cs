@@ -22,6 +22,11 @@ namespace CampaignsWithoutNumber.Shared.DataTransferObjects
 
 		public List<ActionDto>? Actions { get; set; }
 
+		/// <summary>
+		/// Attributes which help determine this character's core statistics.
+		/// </summary>
+		public IEnumerable<AttributeDto>? Attributes { get; set; }
+		
 		public void AddAction(ActionDto action)
 		{
 			Actions ??= new List<ActionDto>();

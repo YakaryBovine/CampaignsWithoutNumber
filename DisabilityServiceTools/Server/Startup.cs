@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using CampaignsWithoutNumber.Shared.Entities.Arts;
+using CampaignsWithoutNumber.Shared.Entities.Attributes;
 using CampaignsWithoutNumber.Shared.Entities.Classes;
 using CampaignsWithoutNumber.Shared.Managers;
 using Microsoft.AspNetCore.Builder;
@@ -75,6 +76,13 @@ public class Startup
 		CharacterClassManager.Register(new Warlock());
 		CharacterClassManager.Register(new HighMage());
 
+		AttributeManager.Register(new Strength());
+		AttributeManager.Register(new Dexterity());
+		AttributeManager.Register(new Constitution());
+		AttributeManager.Register(new Intelligence());
+		AttributeManager.Register(new Wisdom());
+		AttributeManager.Register(new Charisma());
+		
 		ArtManager.Register(new AccursedBlade());
 		ArtManager.Register(new ArcaneLexicon());
 	}
@@ -86,6 +94,13 @@ public class Startup
 		BsonClassMap.RegisterClassMap<Expert>();
 		BsonClassMap.RegisterClassMap<Warlock>();
 		BsonClassMap.RegisterClassMap<HighMage>();
+		
+		BsonClassMap.RegisterClassMap<Strength>();
+		BsonClassMap.RegisterClassMap<Dexterity>();
+		BsonClassMap.RegisterClassMap<Constitution>();
+		BsonClassMap.RegisterClassMap<Intelligence>();
+		BsonClassMap.RegisterClassMap<Wisdom>();
+		BsonClassMap.RegisterClassMap<Charisma>();
 
 		BsonClassMap.RegisterClassMap<AccursedBlade>();
 		BsonClassMap.RegisterClassMap<ArcaneLexicon>();

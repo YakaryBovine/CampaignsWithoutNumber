@@ -14,5 +14,10 @@ namespace CampaignsWithoutNumber.Shared.Entities
 		public List<ICharacterClass>? CharacterClasses { get; set; }
 
 		public int Level { get; set; }
+		
+		/// <summary>
+		/// Attributes which determine the core statistics of the character.
+		/// </summary>
+		public IEnumerable<IAttribute>? Attributes { get; set; }
 	}
 }
