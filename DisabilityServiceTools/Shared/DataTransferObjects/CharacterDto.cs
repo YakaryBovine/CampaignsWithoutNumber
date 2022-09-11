@@ -19,5 +19,7 @@ namespace CampaignsWithoutNumber.Shared.DataTransferObjects
     public string Name { get; set; }
 
     public IEnumerable<CharacterClassDto>? Classes { get; set; }
+    
+    public IEnumerable<ArtDto> Arts { get; set; }
   }
 }

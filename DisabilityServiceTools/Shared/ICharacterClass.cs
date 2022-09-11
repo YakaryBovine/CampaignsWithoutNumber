@@ -14,6 +14,11 @@ namespace CampaignsWithoutNumber.Shared
 
     public List<CharacterFeature> Features { get; }
 
+    /// <summary>
+    /// Class-specific Arts that a player can select if they have this class.
+    /// </summary>
+    public List<Art> Arts { get; }
+    
     public int Id { get; }
 
     public void Apply(CharacterDto characterDto)

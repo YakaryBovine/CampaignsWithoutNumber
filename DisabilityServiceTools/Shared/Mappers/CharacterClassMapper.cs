@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using CampaignsWithoutNumber.Shared.Classes;
 using CampaignsWithoutNumber.Shared.DataTransferObjects;
 using CampaignsWithoutNumber.Shared.Entities;
@@ -18,7 +19,8 @@ namespace CampaignsWithoutNumber.Shared.Mappers
         Name = entity.Name,
         AttackBonusPerLevel = entity.AttackBonusPerLevel,
         HitPointsPerLevel = entity.HitPointsPerLevel,
-        Features = new List<CharacterFeatureDto>()
+        Features = new List<CharacterFeatureDto>(),
+        Arts = entity.Arts.Select(ArtMapper.ToDto)
       };
       // foreach (var feature in entity.GetFeatures())
       // {

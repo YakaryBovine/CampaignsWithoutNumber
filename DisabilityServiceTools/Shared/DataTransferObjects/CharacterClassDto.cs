@@ -14,6 +14,8 @@ namespace CampaignsWithoutNumber.Shared.DataTransferObjects
 
     public List<CharacterFeatureDto> Features { get; set; } = new();
 
+    public IEnumerable<ArtDto> Arts { get; set; }
+    
     public override bool Equals(object o)
     {
       var other = o as CharacterClassDto;

@@ -20,7 +20,8 @@ namespace CampaignsWithoutNumber.Shared.Mappers
         Classes = entity.CharacterClasses?.Select(CharacterClassMapper.ToDto).ToList(),
         HitPoints = 5,
         AttackBonus = 5,
-        SkillPoints = 3*entity.Level
+        SkillPoints = 3*entity.Level,
+        Arts = entity.Arts?.Select(ArtMapper.ToDto).ToList()
       };
       //entity.CharacterClass?.Apply(dto);
       return dto;
@@ -33,7 +34,8 @@ namespace CampaignsWithoutNumber.Shared.Mappers
         Id = dto.Id,
         Level = dto.Level,
         Name = dto.Name,
-        CharacterClasses = dto.Classes?.Select(CharacterClassMapper.ToEntity).ToList()
+        CharacterClasses = dto.Classes?.Select(CharacterClassMapper.ToEntity).ToList(),
+        Arts = dto.Arts?.Select(ArtMapper.ToEntity).ToList()
       };
       return entity;
     }

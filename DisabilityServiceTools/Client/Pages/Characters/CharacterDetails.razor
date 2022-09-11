@@ -65,7 +65,13 @@
 
         <ClassesCard OnClose="Save" Character="Character">
         </ClassesCard>
-
+        
+        @if (Character.Classes?.FirstOrDefault()?.Arts != null)
+        {
+            <ArtsCard OnClose="Save" Character="Character">
+            </ArtsCard>
+        }
+        
         <MudCard Outlined="true">
             <MudCardHeader>
                 <CardHeaderContent>

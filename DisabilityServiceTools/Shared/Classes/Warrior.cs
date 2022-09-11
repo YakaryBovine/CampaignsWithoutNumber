@@ -14,5 +14,7 @@ namespace CampaignsWithoutNumber.Shared.Classes
     public List<CharacterFeature> Features => new();
 
     public int Id => 1;
+    
+    public List<Art> Arts { get; } = new();
   }
 }
