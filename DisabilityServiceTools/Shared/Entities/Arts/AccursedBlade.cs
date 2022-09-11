@@ -1,8 +1,6 @@
-﻿using System;
-using CampaignsWithoutNumber.Shared.DataTransferObjects;
-using CampaignsWithoutNumber.Shared.Entities;
+﻿using CampaignsWithoutNumber.Shared.DataTransferObjects;
 
-namespace CampaignsWithoutNumber.Shared.Arts
+namespace CampaignsWithoutNumber.Shared.Entities.Arts
 {
 	public sealed class AccursedBlade : IArt
 	{

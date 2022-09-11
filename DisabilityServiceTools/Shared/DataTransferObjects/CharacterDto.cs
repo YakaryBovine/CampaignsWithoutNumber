@@ -5,7 +5,7 @@ namespace CampaignsWithoutNumber.Shared.DataTransferObjects
 {
 	public sealed class CharacterDto
 	{
-		public string Id { get; set; }
+		public string? Id { get; set; }
 
 		public int HitPoints { get; set; }
 
@@ -16,11 +16,11 @@ namespace CampaignsWithoutNumber.Shared.DataTransferObjects
 		public int SkillPoints { get; set; }
 
 		[Required(ErrorMessage = "Name is required.")]
-		public string Name { get; set; }
+		public string? Name { get; set; }
 
 		public IEnumerable<CharacterClassDto>? Classes { get; set; }
 
-		public List<ActionDto> Actions { get; set; }
+		public List<ActionDto>? Actions { get; set; }
 
 		public void AddAction(ActionDto action)
 		{

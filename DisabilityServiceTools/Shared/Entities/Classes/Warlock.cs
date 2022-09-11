@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using CampaignsWithoutNumber.Shared.Arts;
+using CampaignsWithoutNumber.Shared.Entities.Arts;
 
 namespace CampaignsWithoutNumber.Shared.Entities.Classes
 {
@@ -15,7 +15,7 @@ namespace CampaignsWithoutNumber.Shared.Entities.Classes
 
 		public List<CharacterFeature> Features => new();
 
-		public List<IArt> SelectedArts { get; set; }
+		public List<IArt>? SelectedArts { get; set; }
 
 		public List<IArt> Arts { get; } = new()
 		{

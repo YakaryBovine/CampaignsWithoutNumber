@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using CampaignsWithoutNumber.Shared.Arts;
+using CampaignsWithoutNumber.Shared.Entities.Arts;
 using CampaignsWithoutNumber.Shared.Entities.Classes;
 using CampaignsWithoutNumber.Shared.Managers;
 using Microsoft.AspNetCore.Builder;

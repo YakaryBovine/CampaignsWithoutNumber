@@ -10,8 +10,7 @@ namespace CampaignsWithoutNumber.Client.Pages.Characters
   public partial class CharacterCreate
   {
     private readonly CharacterDto _character = new();
-    private IEnumerable<CharacterClassDto> _characterClasses = new List<CharacterClassDto>();
-    
+
     [Inject] public IDialogService Dialog { get; set; }
     [Inject] public NavigationManager NavManager { get; set; }
 
@@ -41,7 +40,7 @@ namespace CampaignsWithoutNumber.Client.Pages.Characters
     
     protected override async Task OnInitializedAsync()
     {
-      _characterClasses = await HttpClient.GetFromJsonAsync<List<CharacterClassDto>>("api/characterclass/index");
+      await HttpClient.GetFromJsonAsync<List<CharacterClassDto>>("api/characterclass/index");
     }
   }
 }

@@ -6,7 +6,7 @@ namespace CampaignsWithoutNumber.Shared.DataTransferObjects
 	{
 		public int Id { get; set; }
 
-		public string Name { get; set; }
+		public string? Name { get; set; }
 
 		public float AttackBonusPerLevel { get; set; }
 
@@ -17,7 +17,7 @@ namespace CampaignsWithoutNumber.Shared.DataTransferObjects
 		/// <summary>
 		///    All arts available to this class.
 		/// </summary>
-		public IEnumerable<ArtDto> Arts { get; set; }
+		public IEnumerable<ArtDto>? Arts { get; set; }
 
 		/// <summary>
 		///    All arts currently selected by the character holding this class.
@@ -35,7 +35,7 @@ namespace CampaignsWithoutNumber.Shared.DataTransferObjects
 			return Id.GetHashCode();
 		}
 
-		public override string ToString()
+		public override string? ToString()
 		{
 			return Name;
 		}

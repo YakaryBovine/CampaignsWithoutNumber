@@ -12,7 +12,7 @@ namespace CampaignsWithoutNumber.Shared.Entities.Classes
 
 		public List<CharacterFeature> Features => new();
 
-		public List<IArt> SelectedArts { get; set; }
+		public List<IArt>? SelectedArts { get; set; }
 
 		public int Id => 3;
 

@@ -9,9 +9,9 @@
 		
 		public string Id { get; }
 		
-		public string Name { get; set; }
+		public string? Name { get; set; }
 
-		public string Description { get; set; }
+		public string? Description { get; set; }
 		
 		public override bool Equals(object o)
 		{
@@ -24,7 +24,7 @@
 			return Id.GetHashCode();
 		}
 
-		public override string ToString()
+		public override string? ToString()
 		{
 			return Name;
 		}

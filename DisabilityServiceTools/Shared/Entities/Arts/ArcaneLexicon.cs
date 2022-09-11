@@ -1,7 +1,6 @@
 ﻿using CampaignsWithoutNumber.Shared.DataTransferObjects;
-using CampaignsWithoutNumber.Shared.Entities;
 
-namespace CampaignsWithoutNumber.Shared.Arts
+namespace CampaignsWithoutNumber.Shared.Entities.Arts
 {
 	public sealed class ArcaneLexicon : IArt
 	{

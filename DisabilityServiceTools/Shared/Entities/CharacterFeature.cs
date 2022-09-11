@@ -9,7 +9,5 @@ namespace CampaignsWithoutNumber.Shared.Entities
     public abstract string Name { get; }
     
     public abstract void Apply(CharacterDto character);
-    
-    public CharacterFeature(){}
   }
 }
