@@ -22,30 +22,28 @@ namespace CampaignsWithoutNumber.Shared.Mappers
         HitPoints = 5,
         AttackBonus = 5,
         SkillPoints = 3*entity.Level,
-        Arts = entity.Arts?.Select(ArtMapper.ToDto).ToList()
+        SelectedArts = new ArtBuildDto(entity.SelectedArts.ToDictionary(x => CharacterClassMapper.ToDto(x.Key),
+          x => x.Value.Select(ArtMapper.ToDto)))
       };
-
-      if (entity.Arts != null)
-      {
-        foreach (var art in entity.Arts)
-        {
-          art.Apply(dto);
-        }
-        //entity.CharacterClass?.Apply(dto);
-      }
 
       return dto;
     }
 
     public static Character ToEntity(CharacterDto dto)
     {
+      if (dto == null)
+      {
+        throw new ArgumentNullException(nameof(dto));
+      }
+      
       var entity = new Character
       {
         Id = dto.Id,
         Level = dto.Level,
         Name = dto.Name,
         CharacterClasses = dto.Classes?.Select(CharacterClassMapper.ToEntity).ToList(),
-        Arts = dto.Arts?.Select(ArtMapper.ToEntity).ToList()
+        SelectedArts = dto.SelectedArts?.ToDictionary(x => CharacterClassMapper.ToEntity(x.Key),
+          x => x.Value.Select(ArtMapper.ToEntity))
       };
       return entity;
     }

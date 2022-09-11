@@ -20,10 +20,10 @@ namespace CampaignsWithoutNumber.Shared.DataTransferObjects
 
     public IEnumerable<CharacterClassDto>? Classes { get; set; }
     
-    public IEnumerable<ArtDto> Arts { get; set; }
+    public List<ActionDto>? Actions { get; set; }
 
-    public List<ActionDto> Actions { get; set; }
-
+    public ArtBuildDto SelectedArts { get; set; } = new();
+    
     public void AddAction(ActionDto action)
     {
       Actions ??= new List<ActionDto>();
