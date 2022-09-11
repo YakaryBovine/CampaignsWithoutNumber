@@ -16,7 +16,5 @@ namespace CampaignsWithoutNumber.Shared.Entities
     public List<Art> Arts { get; set; }
     
     public int Level { get; set; }
-
-    public List<Item> Items { get; } = new();
   }
 }

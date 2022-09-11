@@ -16,9 +16,5 @@ namespace CampaignsWithoutNumber.Shared.Entities
     }
 
     public IMongoCollection<Character> CharacterCollection => _mongoDatabase.GetCollection<Character>("character");
-
-    public IMongoCollection<Item> ItemCollection => _mongoDatabase.GetCollection<Item>("item");
-    
-    public IMongoCollection<ShipDefense> ShipDefenseCollection => _mongoDatabase.GetCollection<ShipDefense>("shipDefense");
   }
 }
