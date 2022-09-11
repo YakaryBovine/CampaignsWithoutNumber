@@ -37,7 +37,7 @@
             </MudCardContent>
         </MudCard>
     </MudTabPanel>
-    
+
     @if (Character.Actions?.Any() == true)
     {
         <ActionsTab Character="Character"></ActionsTab>
@@ -50,7 +50,7 @@
         {
             foreach (var characterClass in Character.Classes.Where(x => x.Arts.Any()))
             {
-                <ArtsCard OnClose="@Save" Character="@Character" CharacterClass="@characterClass">
+                <ArtsCard OnClose="@Save" CharacterClass="@characterClass">
                 </ArtsCard>
             }
         }

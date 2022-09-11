@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
 using CampaignsWithoutNumber.Shared.Arts;
-using CampaignsWithoutNumber.Shared.Entities;
 
-namespace CampaignsWithoutNumber.Shared.Classes
+namespace CampaignsWithoutNumber.Shared.Entities.Classes
 {
 	public sealed class HighMage : ICharacterClass
 	{
@@ -13,9 +12,10 @@ namespace CampaignsWithoutNumber.Shared.Classes
 		public float HitPointsPerLevel => 3.5f;
 
 		public List<CharacterFeature> Features => new();
+		public List<IArt> SelectedArts { get; set; }
 
 		public int Id => 5;
-    
-		public List<IArt> Arts { get; } = new() { new ArcaneLexicon() };
+
+		public List<IArt> Arts { get; } = new() {new ArcaneLexicon()};
 	}
 }

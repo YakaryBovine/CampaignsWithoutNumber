@@ -10,7 +10,7 @@
 
     <MudCardContent>
         <MudSelect T="ArtDto" Label="Choose one or more arts" MultiSelection="true"
-                   OnClose="Closed" @bind-SelectedValues="Character.Arts">
+                   OnClose="Closed" @bind-SelectedValues="CharacterClass.SelectedArts">
             @foreach (var art in CharacterClass.Arts)
             {
                 <MudSelectItem Value="@art">@art</MudSelectItem>
