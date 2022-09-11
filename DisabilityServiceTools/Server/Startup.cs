@@ -11,84 +11,83 @@ using Microsoft.Extensions.Hosting;
 using MongoDB.Bson.Serialization;
 using Newtonsoft.Json;
 
-namespace CampaignsWithoutNumber.Server
+namespace CampaignsWithoutNumber.Server;
+
+public class Startup
 {
-  public class Startup
+  public Startup(IConfiguration configuration)
   {
-    public Startup(IConfiguration configuration)
+    Configuration = configuration;
+  }
+
+  private IConfiguration Configuration { get; }
+
+  // This method gets called by the runtime. Use this method to add services to the container.
+  // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
+  public void ConfigureServices(IServiceCollection services)
+  {
+    services.AddControllersWithViews()
+      .AddNewtonsoftJson(options =>
+        options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+      );
+    services.AddRazorPages();
+    services.AddSignalR();
+    services.AddResponseCompression(opts =>
     {
-      Configuration = configuration;
+      opts.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(
+        new[] { "application/octet-stream" });
+    });
+    RegisterClassMaps();
+    CreateCharacterClasses();
+  }
+
+  // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+  public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+  {
+    if (env.IsDevelopment())
+    {
+      app.UseDeveloperExceptionPage();
+      app.UseWebAssemblyDebugging();
+    }
+    else
+    {
+      app.UseExceptionHandler("/Error");
     }
 
-    private IConfiguration Configuration { get; }
+    app.UseBlazorFrameworkFiles();
+    app.UseStaticFiles();
 
-    // This method gets called by the runtime. Use this method to add services to the container.
-    // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
-    public void ConfigureServices(IServiceCollection services)
+    app.UseRouting();
+
+    app.UseEndpoints(endpoints =>
     {
-      services.AddControllersWithViews()
-        .AddNewtonsoftJson(options =>
-          options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore
-        );
-      services.AddRazorPages();
-      services.AddSignalR();
-      services.AddResponseCompression(opts =>
-      {
-        opts.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(
-          new[] { "application/octet-stream" });
-      });
-      RegisterClassMaps();
-      CreateCharacterClasses();
-    }
-
-    // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-    {
-      if (env.IsDevelopment())
-      {
-        app.UseDeveloperExceptionPage();
-        app.UseWebAssemblyDebugging();
-      }
-      else
-      {
-        app.UseExceptionHandler("/Error");
-      }
-
-      app.UseBlazorFrameworkFiles();
-      app.UseStaticFiles();
-
-      app.UseRouting();
-
-      app.UseEndpoints(endpoints =>
-      {
-        endpoints.MapRazorPages();
-        endpoints.MapControllers();
-        endpoints.MapFallbackToFile("index.html");
-      });
-    }
+      endpoints.MapRazorPages();
+      endpoints.MapControllers();
+      endpoints.MapFallbackToFile("index.html");
+    });
+  }
     
-    private static void CreateCharacterClasses()
-    {
-      CharacterClassManager.Register(new Warrior());
-      CharacterClassManager.Register(new Expert());
-      CharacterClassManager.Register(new Psychic());
-      CharacterClassManager.Register(new Warlock());
-      CharacterClassManager.Register(new HighMage());
+  private static void CreateCharacterClasses()
+  {
+    CharacterClassManager.Register(new Warrior());
+    CharacterClassManager.Register(new Expert());
+    CharacterClassManager.Register(new Psychic());
+    CharacterClassManager.Register(new Warlock());
+    CharacterClassManager.Register(new HighMage());
 
-      ArtManager.Register(new AccursedBlade());
-      ArtManager.Register(new ArcaneLexicon());
-    }
+    ArtManager.Register(new AccursedBlade());
+    ArtManager.Register(new ArcaneLexicon());
+  }
     
-    private static void RegisterClassMaps()
-    {
-      BsonClassMap.RegisterClassMap<Warrior>();
-      BsonClassMap.RegisterClassMap<Psychic>();
-      BsonClassMap.RegisterClassMap<Expert>();
-      BsonClassMap.RegisterClassMap<Warlock>();
-      BsonClassMap.RegisterClassMap<HighMage>();
+  private static void RegisterClassMaps()
+  {
+    BsonClassMap.RegisterClassMap<Warrior>();
+    BsonClassMap.RegisterClassMap<Psychic>();
+    BsonClassMap.RegisterClassMap<Expert>();
+    BsonClassMap.RegisterClassMap<Warlock>();
+    BsonClassMap.RegisterClassMap<HighMage>();
 
-      BsonClassMap.RegisterClassMap<AccursedBlade>();
-      BsonClassMap.RegisterClassMap<ArcaneLexicon>();
-    }
+    BsonClassMap.RegisterClassMap<AccursedBlade>();
+    BsonClassMap.RegisterClassMap<ArcaneLexicon>();
   }
 }

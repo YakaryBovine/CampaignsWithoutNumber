@@ -5,23 +5,22 @@ using CampaignsWithoutNumber.Shared.Managers;
 using CampaignsWithoutNumber.Shared.Mappers;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CampaignsWithoutNumber.Server.Controllers
-{
-  [Route("api/characterclass")]
-  public class CharacterClassController : Controller
-  {
-    [HttpGet]
-    [Route("index")]
-    public List<CharacterClassDto> Index()
-    {
-      return CharacterClassManager.GetAll().Select(CharacterClassMapper.ToDto).ToList();
-    }
+namespace CampaignsWithoutNumber.Server.Controllers;
 
-    [HttpGet]
-    [Route("details/{id:int}")]
-    public CharacterClassDto Details(int id)
-    {
-      return CharacterClassMapper.ToDto(CharacterClassManager.GetById(id));
-    }
+[Route("api/characterclass")]
+public class CharacterClassController : Controller
+{
+  [HttpGet]
+  [Route("index")]
+  public List<CharacterClassDto> Index()
+  {
+    return CharacterClassManager.GetAll().Select(CharacterClassMapper.ToDto).ToList();
+  }
+
+  [HttpGet]
+  [Route("details/{id:int}")]
+  public CharacterClassDto Details(int id)
+  {
+    return CharacterClassMapper.ToDto(CharacterClassManager.GetById(id));
   }
 }
