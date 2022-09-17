@@ -22,7 +22,12 @@ namespace CampaignsWithoutNumber.Shared.Entities.Classes
 		{
 			new AccursedBlade(),
 			new AccursedBolt(),
-			new BewitchedDistraction()
+			new BewitchedDistraction(),
+			new CompellingShriek(),
+			new DevilsBargain(),
+			new DirePact(),
+			new LyingFace(),
+			new NightBlackEyes()
 		};
 	}
 }
