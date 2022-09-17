@@ -13,10 +13,10 @@ namespace CampaignsWithoutNumber.Shared.Entities.Attributes
 
 		public int Value { get; set; }
 		
-		public int Modifier { get; set; }
+		public int Modifier => this.CalculateModifier();
 
 		public string Name => "Charisma";
-		
-		public string Description { get; set; }
+
+		public string Description => "Force of character, charming others, attracting attention, winning loyalty";
 	}
 }

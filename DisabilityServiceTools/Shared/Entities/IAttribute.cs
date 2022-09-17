@@ -9,8 +9,8 @@ namespace CampaignsWithoutNumber.Shared.Entities
 		public void Apply(CharacterDto character);
 
 		public int Value { get; set; }
-		
-		public int Modifier { get; set; }
+
+		public int Modifier { get; }
 		
 		string Name { get; }
 		

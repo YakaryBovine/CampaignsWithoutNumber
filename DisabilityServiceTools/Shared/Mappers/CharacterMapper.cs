@@ -21,7 +21,8 @@ namespace CampaignsWithoutNumber.Shared.Mappers
 				HitPoints = 5,
 				AttackBonus = 5,
 				SkillPoints = 3 * entity.Level,
-				Attributes = entity.Attributes?.Select(AttributeMapper.ToDto)
+				Attributes = entity.Attributes?.Select(AttributeMapper.ToDto),
+				ArmorClass = 10
 			};
 
 			dto.Attributes ??= AttributeManager.GetAll().Select(AttributeMapper.ToDto);

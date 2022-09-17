@@ -8,15 +8,15 @@ namespace CampaignsWithoutNumber.Shared.Entities.Attributes
 		
 		public void Apply(CharacterDto character)
 		{
-			
+			character.HitPoints += Modifier;
 		}
 
 		public int Value { get; set; }
-		
-		public int Modifier { get; set; }
-		
+
+		public int Modifier => this.CalculateModifier();
+
 		public string Name => "Constitution";
-		
-		public string Description { get; set; }
+
+		public string Description => "Hardiness, enduring injury, resisting poisons, going without food or rest";
 	}
 }
