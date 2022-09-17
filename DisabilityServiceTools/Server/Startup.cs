@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using CampaignsWithoutNumber.Shared.Entities;
-using CampaignsWithoutNumber.Shared.Entities.Arts;
 using CampaignsWithoutNumber.Shared.Entities.Attributes;
 using CampaignsWithoutNumber.Shared.Entities.Classes;
 using CampaignsWithoutNumber.Shared.Managers;
@@ -88,8 +87,11 @@ public class Startup
     var classTypesImplementingInterface = AppDomain.CurrentDomain.GetAssemblies().SelectMany(x => x.GetTypes())
       .Where(mytype =>
         typeof(IArt).IsAssignableFrom(mytype) && mytype.GetInterfaces().Contains(typeof(IArt)));
-    foreach (var item in classTypesImplementingInterface)
-      ArtManager.Register((IArt?)Activator.CreateInstance(item) ?? throw new InvalidOperationException());
+    foreach (var artType in classTypesImplementingInterface)
+    {
+      BsonClassMap.LookupClassMap(artType);
+      ArtManager.Register((IArt?)Activator.CreateInstance(artType) ?? throw new InvalidOperationException());
+    }
   }
 
   private static void RegisterClassMaps()
@@ -106,8 +108,5 @@ public class Startup
     BsonClassMap.RegisterClassMap<Intelligence>();
     BsonClassMap.RegisterClassMap<Wisdom>();
     BsonClassMap.RegisterClassMap<Charisma>();
-
-    BsonClassMap.RegisterClassMap<AccursedBlade>();
-    BsonClassMap.RegisterClassMap<ArcaneLexicon>();
   }
 }
