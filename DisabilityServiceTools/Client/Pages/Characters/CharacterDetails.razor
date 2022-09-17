@@ -20,7 +20,7 @@
         <MudCard>
             <MudCardContent>
                 <MudText Typo="Typo.body1">
-                    <strong>Class:</strong> @Character.Classes?.FirstOrDefault()?.Name
+                    <strong>Class:</strong> @string.Join(", ", @Character.Classes?.Select(x => x.Name) ?? Array.Empty<string?>())
                 </MudText>
                 <MudText Typo="Typo.body1">
                     <strong>Level:</strong> @Character.Level

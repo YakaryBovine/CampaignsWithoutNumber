@@ -11,11 +11,9 @@ namespace CampaignsWithoutNumber.Shared.Entities
       var value = attribute.Value;
       return value switch
       {
-        < 3 => throw new ArgumentException("Attribute modifiers cannot be given for attribute values less than 3.",
-          nameof(attribute)),
-        > 18 => throw new ArgumentException("Attribute modifiers cannot be given for attribute values greater than 18.",
-          nameof(attribute)),
-        _ => AttributeModifiers[value-1]
+        < 3 => AttributeModifiers[0],
+        > 18 => AttributeModifiers[^1],
+        _ => AttributeModifiers[value - 1]
       };
     }
   }
