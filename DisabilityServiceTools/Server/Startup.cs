@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using CampaignsWithoutNumber.Shared.Entities.Arts;
+using CampaignsWithoutNumber.Shared.Entities.Arts.Warlock;
 using CampaignsWithoutNumber.Shared.Entities.Attributes;
 using CampaignsWithoutNumber.Shared.Entities.Classes;
 using CampaignsWithoutNumber.Shared.Managers;

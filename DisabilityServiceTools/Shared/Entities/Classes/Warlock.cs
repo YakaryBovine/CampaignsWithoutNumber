@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using CampaignsWithoutNumber.Shared.Entities.Arts;
+using CampaignsWithoutNumber.Shared.Entities.Arts.Warlock;
 
 namespace CampaignsWithoutNumber.Shared.Entities.Classes
 {
@@ -19,7 +20,9 @@ namespace CampaignsWithoutNumber.Shared.Entities.Classes
 
 		public List<IArt> Arts { get; } = new()
 		{
-			new AccursedBlade()
+			new AccursedBlade(),
+			new AccursedBolt(),
+			new BewitchedDistraction()
 		};
 	}
 }
