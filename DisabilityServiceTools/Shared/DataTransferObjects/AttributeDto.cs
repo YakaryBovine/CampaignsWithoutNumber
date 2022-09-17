@@ -22,13 +22,8 @@
 		/// The raw numerical value of the attribute.
 		/// </summary>
 		public int Value { get; set; }
-		
-		/// <summary>
-		/// How the attribute affects dice rolls related to it.
-		/// </summary>
-		public int Modifier { get; }
-		
-		public override bool Equals(object o)
+
+		public override bool Equals(object? o)
 		{
 			var other = o as AttributeDto;
 			return other?.Id == Id;

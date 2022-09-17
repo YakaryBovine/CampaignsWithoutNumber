@@ -11,8 +11,8 @@ namespace CampaignsWithoutNumber.Client.Pages.Characters
   {
     private readonly CharacterDto _character = new();
 
-    [Inject] public IDialogService Dialog { get; set; }
-    [Inject] public NavigationManager NavManager { get; set; }
+    [Inject] public IDialogService? Dialog { get; set; }
+    [Inject] public NavigationManager? NavManager { get; set; }
 
     private async Task Create()
     {
@@ -28,13 +28,13 @@ namespace CampaignsWithoutNumber.Client.Pages.Characters
         {"ButtonColor", Color.Primary},
         {"ButtonText", "OK"}
       };
-      var dialog = Dialog.Show<DialogNotification>("Success", parameters);
+      var dialog = Dialog?.Show<DialogNotification>("Success", parameters);
       var result = await dialog.Result;
       if (!result.Cancelled)
       {
         bool.TryParse(result.Data.ToString(), out bool shouldNavigate);
         if (shouldNavigate)
-          NavManager.NavigateTo("/characterlist");
+          NavManager?.NavigateTo("/characterlist");
       }
     }
     

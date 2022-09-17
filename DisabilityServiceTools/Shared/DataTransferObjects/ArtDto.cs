@@ -13,7 +13,7 @@
 
 		public string? Description { get; set; }
 		
-		public override bool Equals(object o)
+		public override bool Equals(object? o)
 		{
 			var other = o as ArtDto;
 			return other?.Id == Id;

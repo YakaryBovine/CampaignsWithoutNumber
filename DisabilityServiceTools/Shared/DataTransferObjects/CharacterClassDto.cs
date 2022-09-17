@@ -24,7 +24,7 @@ namespace CampaignsWithoutNumber.Shared.DataTransferObjects
 		/// </summary>
 		public IEnumerable<ArtDto>? SelectedArts { get; set; }
 
-		public override bool Equals(object o)
+		public override bool Equals(object? o)
 		{
 			var other = o as CharacterClassDto;
 			return other?.Id == Id;
