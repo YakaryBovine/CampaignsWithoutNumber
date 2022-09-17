@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using CampaignsWithoutNumber.Shared;
 using CampaignsWithoutNumber.Shared.Entities;
 using CampaignsWithoutNumber.Shared.Entities.Attributes;
 using CampaignsWithoutNumber.Shared.Entities.Classes;
@@ -39,7 +40,6 @@ public class Startup
       opts.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(
         new[] { "application/octet-stream" });
     });
-    RegisterClassMaps();
     CreateCharacterClasses();
   }
 
@@ -71,42 +71,31 @@ public class Startup
 
   private static void CreateCharacterClasses()
   {
-    CharacterClassManager.Register(new Warrior());
-    CharacterClassManager.Register(new Expert());
-    CharacterClassManager.Register(new Psychic());
-    CharacterClassManager.Register(new Warlock());
-    CharacterClassManager.Register(new HighMage());
+    var characterClassImplementingAttribute = AppDomain.CurrentDomain.GetAssemblies().SelectMany(x => x.GetTypes())
+      .Where(mytype =>
+        typeof(ICharacterClass).IsAssignableFrom(mytype) && mytype.GetInterfaces().Contains(typeof(ICharacterClass)));
+    foreach (var characterClassType in characterClassImplementingAttribute)
+    {
+      BsonClassMap.LookupClassMap(characterClassType);
+      CharacterClassManager.Register((ICharacterClass?)Activator.CreateInstance(characterClassType) ?? throw new InvalidOperationException());
+    }
+    
+    var typesImplementingAttribute = AppDomain.CurrentDomain.GetAssemblies().SelectMany(x => x.GetTypes())
+      .Where(mytype =>
+        typeof(IAttribute).IsAssignableFrom(mytype) && mytype.GetInterfaces().Contains(typeof(IAttribute)));
+    foreach (var attributeType in typesImplementingAttribute)
+    {
+      BsonClassMap.LookupClassMap(attributeType);
+      AttributeManager.Register((IAttribute?)Activator.CreateInstance(attributeType) ?? throw new InvalidOperationException());
+    }
 
-    AttributeManager.Register(new Strength());
-    AttributeManager.Register(new Dexterity());
-    AttributeManager.Register(new Constitution());
-    AttributeManager.Register(new Intelligence());
-    AttributeManager.Register(new Wisdom());
-    AttributeManager.Register(new Charisma());
-
-    var classTypesImplementingInterface = AppDomain.CurrentDomain.GetAssemblies().SelectMany(x => x.GetTypes())
+    var typesImplementingArt = AppDomain.CurrentDomain.GetAssemblies().SelectMany(x => x.GetTypes())
       .Where(mytype =>
         typeof(IArt).IsAssignableFrom(mytype) && mytype.GetInterfaces().Contains(typeof(IArt)));
-    foreach (var artType in classTypesImplementingInterface)
+    foreach (var artType in typesImplementingArt)
     {
       BsonClassMap.LookupClassMap(artType);
       ArtManager.Register((IArt?)Activator.CreateInstance(artType) ?? throw new InvalidOperationException());
     }
-  }
-
-  private static void RegisterClassMaps()
-  {
-    BsonClassMap.RegisterClassMap<Warrior>();
-    BsonClassMap.RegisterClassMap<Psychic>();
-    BsonClassMap.RegisterClassMap<Expert>();
-    BsonClassMap.RegisterClassMap<Warlock>();
-    BsonClassMap.RegisterClassMap<HighMage>();
-
-    BsonClassMap.RegisterClassMap<Strength>();
-    BsonClassMap.RegisterClassMap<Dexterity>();
-    BsonClassMap.RegisterClassMap<Constitution>();
-    BsonClassMap.RegisterClassMap<Intelligence>();
-    BsonClassMap.RegisterClassMap<Wisdom>();
-    BsonClassMap.RegisterClassMap<Charisma>();
   }
 }
