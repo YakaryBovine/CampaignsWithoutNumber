@@ -27,7 +27,18 @@ namespace CampaignsWithoutNumber.Shared.Entities.Classes
 			new DevilsBargain(),
 			new DirePact(),
 			new LyingFace(),
-			new NightBlackEyes()
+			new NightBlackEyes(),
+			new PactedProtection(),
+			new RobVitality(),
+			new ScourgingCurse(),
+			new ShadowedSteps(),
+			new SnaringSpeech(),
+			new SorcerousBattery(),
+			new SoulConsumption(),
+			new TendrilsOfNight(),
+			new UnseenSteps(),
+			new WeepingWounds(),
+			new WeightOfSin()
 		};
 	}
 }

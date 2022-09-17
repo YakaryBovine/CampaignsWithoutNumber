@@ -85,7 +85,24 @@ public class Startup
 		AttributeManager.Register(new Charisma());
 		
 		ArtManager.Register(new AccursedBlade());
-		ArtManager.Register(new ArcaneLexicon());
+		ArtManager.Register(new AccursedBolt());
+		ArtManager.Register(new BewitchedDistraction());
+		ArtManager.Register(new CompellingShriek());
+		ArtManager.Register(new DevilsBargain());
+		ArtManager.Register(new DirePact());
+		ArtManager.Register(new LyingFace());
+		ArtManager.Register(new NightBlackEyes());
+		ArtManager.Register(new PactedProtection());
+		ArtManager.Register(new RobVitality());
+		ArtManager.Register(new ScourgingCurse());
+		ArtManager.Register(new ShadowedSteps());
+		ArtManager.Register(new SnaringSpeech());
+		ArtManager.Register(new SorcerousBattery());
+		ArtManager.Register(new SoulConsumption());
+		ArtManager.Register(new TendrilsOfNight());
+		ArtManager.Register(new UnseenSteps());
+		ArtManager.Register(new WeepingWounds());
+		ArtManager.Register(new WeightOfSin());
 	}
 
 	private static void RegisterClassMaps()
@@ -104,6 +121,23 @@ public class Startup
 		BsonClassMap.RegisterClassMap<Charisma>();
 
 		BsonClassMap.RegisterClassMap<AccursedBlade>();
-		BsonClassMap.RegisterClassMap<ArcaneLexicon>();
+		BsonClassMap.RegisterClassMap<AccursedBolt>();
+		BsonClassMap.RegisterClassMap<BewitchedDistraction>();
+		BsonClassMap.RegisterClassMap<CompellingShriek>();
+		BsonClassMap.RegisterClassMap<DevilsBargain>();
+		BsonClassMap.RegisterClassMap<DirePact>();
+		BsonClassMap.RegisterClassMap<LyingFace>();
+		BsonClassMap.RegisterClassMap<NightBlackEyes>();
+		BsonClassMap.RegisterClassMap<PactedProtection>();
+		BsonClassMap.RegisterClassMap<RobVitality>();
+		BsonClassMap.RegisterClassMap<ScourgingCurse>();
+		BsonClassMap.RegisterClassMap<ShadowedSteps>();
+		BsonClassMap.RegisterClassMap<SnaringSpeech>();
+		BsonClassMap.RegisterClassMap<SorcerousBattery>();
+		BsonClassMap.RegisterClassMap<SoulConsumption>();
+		BsonClassMap.RegisterClassMap<TendrilsOfNight>();
+		BsonClassMap.RegisterClassMap<UnseenSteps>();
+		BsonClassMap.RegisterClassMap<WeepingWounds>();
+		BsonClassMap.RegisterClassMap<WeightOfSin>();
 	}
 }
