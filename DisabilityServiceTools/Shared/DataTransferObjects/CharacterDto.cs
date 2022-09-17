@@ -36,7 +36,9 @@ namespace CampaignsWithoutNumber.Shared.DataTransferObjects
 		/// Attributes which help determine this character's core statistics.
 		/// </summary>
 		public IEnumerable<AttributeDto>? Attributes { get; set; }
-		
+
+		public int ArmorClass { get; set; }
+
 		public void AddAction(ActionDto action)
 		{
 			Actions ??= new List<ActionDto>();

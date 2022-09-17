@@ -10,7 +10,6 @@ namespace CampaignsWithoutNumber.Shared.Mappers
 		{
 			var entity = AttributeManager.GetById(dto.Id);
 			entity.Value = dto.Value;
-			entity.Modifier = dto.Modifier;
 			return entity;
 		}
 		

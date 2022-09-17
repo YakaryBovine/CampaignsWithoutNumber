@@ -8,15 +8,15 @@ namespace CampaignsWithoutNumber.Shared.Entities.Attributes
 		
 		public void Apply(CharacterDto character)
 		{
-			
+			character.ArmorClass += Modifier;
 		}
 
 		public int Value { get; set; }
 		
-		public int Modifier { get; set; }
-		
+		public int Modifier => this.CalculateModifier();
+
 		public string Name => "Dexterity";
-		
-		public string Description { get; set; }
+
+		public string Description => "Speed, evasion, manual dexterity, reaction time, combat initiative";
 	}
 }

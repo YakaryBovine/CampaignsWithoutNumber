@@ -13,10 +13,10 @@ namespace CampaignsWithoutNumber.Shared.Entities.Attributes
 
 		public int Value { get; set; }
 		
-		public int Modifier { get; set; }
+		public int Modifier => this.CalculateModifier();
 		
 		public string Name => "Intelligence";
-		
-		public string Description { get; set; }
+
+		public string Description => "Memory, reasoning, intellectual skills, general education";
 	}
 }
