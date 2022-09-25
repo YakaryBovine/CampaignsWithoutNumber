@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Globalization;
 using System.Linq;
+using CampaignsWithoutNumber.Client;
 using CampaignsWithoutNumber.Shared;
 using CampaignsWithoutNumber.Shared.Entities;
 using CampaignsWithoutNumber.Shared.Managers;
@@ -9,29 +11,38 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MongoDB.Bson.Serialization;
 using Newtonsoft.Json;
+using Syncfusion.Blazor;
 
 namespace CampaignsWithoutNumber.Server;
 
 public static class Program
 {
-  public static void Main(string[] args)
+  private static void ConfigureServices(IServiceCollection services)
   {
-    var builder = WebApplication.CreateBuilder(args);
-
-    // Add services to the container.
-    builder.Services.AddControllersWithViews()
+    services.AddControllersWithViews()
       .AddNewtonsoftJson(options =>
         options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore
       );
-    builder.Services.AddRazorPages();
-    builder.Services.AddSignalR();
-    builder.Services.AddResponseCompression(opts =>
+    services.AddRazorPages();
+    services.AddSignalR();
+    services.AddResponseCompression(opts =>
     {
       opts.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(
         new[] { "application/octet-stream" });
     });
     CreateCharacterClasses();
-
+  }
+  
+  public static void Main(string[] args)
+  {
+    var builder = WebApplication.CreateBuilder(args);
+    
+    ConfigureServices(builder.Services);
+    
+    // Set the default culture of the application
+    CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-GB");
+    CultureInfo.DefaultThreadCurrentUICulture = new CultureInfo("en-GB");
+    
     var app = builder.Build();
 
     // Configure the HTTP request pipeline.
