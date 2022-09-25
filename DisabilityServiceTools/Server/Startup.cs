@@ -13,6 +13,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MongoDB.Bson.Serialization;
 using Newtonsoft.Json;
+using Syncfusion.Blazor;
 
 namespace CampaignsWithoutNumber.Server;
 
@@ -35,6 +36,7 @@ public class Startup
       );
     services.AddRazorPages();
     services.AddSignalR();
+    services.AddSyncfusionBlazor();
     services.AddResponseCompression(opts =>
     {
       opts.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(
