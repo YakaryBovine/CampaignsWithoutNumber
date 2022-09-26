@@ -6,13 +6,14 @@
   </PropertyGroup>
   
   <ItemGroup>
-    <Content Include="map.geojson">
+    <Content Include="map.geojson;markers.geojson">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   
   <ItemGroup>
     <PackageReference Include="Faker.Net" Version="2.0.154" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.Core" Version="5.2.9" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="6.0.8" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.8" />
