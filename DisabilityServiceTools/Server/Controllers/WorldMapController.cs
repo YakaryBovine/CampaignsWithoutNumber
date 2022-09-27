@@ -1,20 +1,22 @@
 ﻿using System;
 using System.IO;
+using System.Threading.Tasks;
 using CampaignsWithoutNumber.Shared.DataTransferObjects;
 using GeoJSON.Net.Feature;
+using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
 namespace CampaignsWithoutNumber.Server.Controllers;
 
-[Microsoft.AspNetCore.Mvc.Route("api/worldmap")]
-public class WorldMapController
+[Route("api/worldmap")]
+public sealed class WorldMapController
 {
-  [Microsoft.AspNetCore.Mvc.HttpGet]
-  [Microsoft.AspNetCore.Mvc.Route("get")]
-  public WorldMapDto Get()
+  [HttpGet]
+  [Route("get")]
+  public async Task<ActionResult<WorldMapDto>> Get()
   {
-    var statesJson = File.ReadAllText("map.geojson");
-    var markersJson = File.ReadAllText("markers.geojson");
+    var statesJson = await File.ReadAllTextAsync("map.geojson");
+    var markersJson = await File.ReadAllTextAsync("markers.geojson");
 
     return new WorldMapDto
     {
