@@ -1,6 +1,5 @@
-﻿using System.IO;
-using System.Net;
-using System.Web.Http;
+﻿using System;
+using System.IO;
 using CampaignsWithoutNumber.Shared.DataTransferObjects;
 using GeoJSON.Net.Feature;
 using Newtonsoft.Json;
@@ -14,17 +13,14 @@ public class WorldMapController
   [Microsoft.AspNetCore.Mvc.Route("get")]
   public WorldMapDto Get()
   {
-    var statesPath = File.ReadAllText("map.geojson");
-    var markersPath = File.ReadAllText("markers.geojson");
+    var statesJson = File.ReadAllText("map.geojson");
+    var markersJson = File.ReadAllText("markers.geojson");
 
-    var states = JsonConvert.DeserializeObject<object>(statesPath);
-    var markers = JsonConvert.DeserializeObject<FeatureCollection>(markersPath);
-
-    if (states == null || markers == null)
+    return new WorldMapDto
     {
-      throw new HttpResponseException(HttpStatusCode.NotFound);
-    }
-    
-    return new WorldMapDto {States = states, Markers = markers};
+      States = JsonConvert.DeserializeObject<FeatureCollection>(statesJson) ?? throw new InvalidOperationException(), 
+      Markers = JsonConvert.DeserializeObject<FeatureCollection>(markersJson) ?? throw new InvalidOperationException(),
+      StatesRaw = JsonConvert.DeserializeObject<object>(statesJson) ?? throw new InvalidOperationException()
+    };
   }
 }

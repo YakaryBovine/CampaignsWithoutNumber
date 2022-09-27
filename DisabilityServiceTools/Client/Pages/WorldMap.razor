@@ -1,6 +1,7 @@
 ﻿@page "/worldmap"
 @using Syncfusion.Blazor.Maps
 @using CampaignsWithoutNumber.Shared.DataTransferObjects
+@using Newtonsoft.Json
 @inject HttpClient HttpClient
 
 <SfMaps Height="800px" Width="100%">
@@ -11,7 +12,7 @@
         </MapsZoomToolbarSettings>
     </MapsZoomSettings>
     <MapsLayers>
-        <MapsLayer ShapeData="@_mapData?.States" TValue="string">
+        <MapsLayer ShapeData="@_mapData?.StatesRaw" TValue="string">
             <MapsMarkerSettings>
                 <MapsMarker Visible="true" DataSource="_markerData" LatitudeValuePath="Latitude" LongitudeValuePath="Longitude" Shape="MarkerType.Circle" TValue="City">
                 </MapsMarker>
@@ -27,7 +28,8 @@
 
     protected override async Task OnInitializedAsync()
     {
-        _mapData = await HttpClient.GetFromJsonAsync<WorldMapDto>("api/worldmap/get");
+        var mapDataRaw = await HttpClient.GetStringAsync("api/worldmap/get");
+        _mapData = JsonConvert.DeserializeObject<WorldMapDto>(mapDataRaw);
         _markerData = _mapData.Markers.Features.Select(x => new City {Latitude = 0, Longitude = 0}).ToList();
     }    
     
