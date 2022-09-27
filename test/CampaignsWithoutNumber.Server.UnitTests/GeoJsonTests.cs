@@ -2,7 +2,7 @@ using System.Text.Json;
 using FluentAssertions;
 using GeoJSON.Text.Feature;
 
-namespace CampaignsWithoutNumber.Server.Test;
+namespace CampaignsWithoutNumber.Server.UnitTests;
 
 public sealed class GeoJsonTests
 {

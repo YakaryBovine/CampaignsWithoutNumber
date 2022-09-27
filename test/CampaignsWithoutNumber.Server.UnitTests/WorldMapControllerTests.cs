@@ -2,8 +2,9 @@
 using CampaignsWithoutNumber.Shared.DataTransferObjects;
 using FluentAssertions;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Testing;
 
-namespace CampaignsWithoutNumber.Server.Test;
+namespace CampaignsWithoutNumber.Server.UnitTests;
 
 public sealed class WorldMapControllerTests
 {
