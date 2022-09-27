@@ -17,7 +17,10 @@ public class Program
 {
   private static void ConfigureServices(IServiceCollection services)
   {
-    services.AddControllers();
+    services.AddControllersWithViews()
+      .AddNewtonsoftJson(options =>
+        options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+      );
     services.AddRazorPages();
     services.AddSignalR();
     services.AddResponseCompression(opts =>

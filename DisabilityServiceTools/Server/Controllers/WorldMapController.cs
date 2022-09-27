@@ -1,25 +1,30 @@
 ﻿using System.IO;
-using System.Text.Json;
-using System.Threading.Tasks;
+using System.Net;
+using System.Web.Http;
 using CampaignsWithoutNumber.Shared.DataTransferObjects;
-using GeoJSON.Text.Feature;
-using Microsoft.AspNetCore.Mvc;
+using GeoJSON.Net.Feature;
+using Newtonsoft.Json;
 
 namespace CampaignsWithoutNumber.Server.Controllers;
 
-[Route("api/worldmap")]
+[Microsoft.AspNetCore.Mvc.Route("api/worldmap")]
 public class WorldMapController
 {
-  [HttpGet]
-  [Route("index")]
-  public async Task<ActionResult<WorldMapDto>> Get()
+  [Microsoft.AspNetCore.Mvc.HttpGet]
+  [Microsoft.AspNetCore.Mvc.Route("get")]
+  public WorldMapDto Get()
   {
-    var statesPath = await File.ReadAllTextAsync("map.geojson");
-    var markersPath = await File.ReadAllTextAsync("markers.geojson");
+    var statesPath = File.ReadAllText("map.geojson");
+    var markersPath = File.ReadAllText("markers.geojson");
 
-    var states = JsonSerializer.Deserialize<FeatureCollection>(statesPath);
-    var markers = JsonSerializer.Deserialize<FeatureCollection>(markersPath);
+    var states = JsonConvert.DeserializeObject<object>(statesPath);
+    var markers = JsonConvert.DeserializeObject<FeatureCollection>(markersPath);
 
+    if (states == null || markers == null)
+    {
+      throw new HttpResponseException(HttpStatusCode.NotFound);
+    }
+    
     return new WorldMapDto {States = states, Markers = markers};
   }
 }

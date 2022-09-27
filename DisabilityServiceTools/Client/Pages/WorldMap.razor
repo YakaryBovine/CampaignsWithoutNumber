@@ -11,19 +11,29 @@
         </MapsZoomToolbarSettings>
     </MapsZoomSettings>
     <MapsLayers>
-        @if (_mapData != null)
-        {
-            <MapsLayer ShapeData="@_mapData.States" TValue="string">
-            </MapsLayer>
-        }
+        <MapsLayer ShapeData="@_mapData?.States" TValue="string">
+            <MapsMarkerSettings>
+                <MapsMarker Visible="true" DataSource="_markerData" LatitudeValuePath="Latitude" LongitudeValuePath="Longitude" Shape="MarkerType.Circle" TValue="City">
+                </MapsMarker>
+            </MapsMarkerSettings>
+            <MapsShapeSettings Autofill="true"></MapsShapeSettings>
+        </MapsLayer>
     </MapsLayers>
 </SfMaps>
 
 @code {
     WorldMapDto? _mapData;
+    List<City> _markerData = new();
 
     protected override async Task OnInitializedAsync()
     {
-        _mapData = await HttpClient.GetFromJsonAsync<WorldMapDto>("api/worldmap/index");
-    }
+        _mapData = await HttpClient.GetFromJsonAsync<WorldMapDto>("api/worldmap/get");
+        _markerData = _mapData.Markers.Features.Select(x => new City {Latitude = 0, Longitude = 0}).ToList();
+    }    
+    
+    public class City
+    {
+        public double Latitude { get; set; }
+        public double Longitude { get; set; }
+    };
 }
