@@ -9,6 +9,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CampaignsWithoutNumber.Clie
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CampaignsWithoutNumber.Shared", "DisabilityServiceTools\Shared\CampaignsWithoutNumber.Shared.csproj", "{0114EF15-DFEB-4CD8-BFE1-84C9A7D7CE8F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CampaignsWithoutNumber.Server.Test", "test\CampaignsWithoutNumber.Server.Test\CampaignsWithoutNumber.Server.Test.csproj", "{BEDDFC29-A942-499A-81B5-19D44E848C83}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{C973169B-201D-498D-A40E-1150533A6542}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{9A4182F7-AB21-42C1-AD33-8E57B762AA3D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,11 +33,18 @@ Global
 		{0114EF15-DFEB-4CD8-BFE1-84C9A7D7CE8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0114EF15-DFEB-4CD8-BFE1-84C9A7D7CE8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0114EF15-DFEB-4CD8-BFE1-84C9A7D7CE8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEDDFC29-A942-499A-81B5-19D44E848C83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEDDFC29-A942-499A-81B5-19D44E848C83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEDDFC29-A942-499A-81B5-19D44E848C83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEDDFC29-A942-499A-81B5-19D44E848C83}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {50812517-BA2B-4E04-B245-FB5927E47B34}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BEDDFC29-A942-499A-81B5-19D44E848C83} = {9A4182F7-AB21-42C1-AD33-8E57B762AA3D}
 	EndGlobalSection
 EndGlobal
