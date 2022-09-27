@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Globalization;
 using System.Linq;
-using CampaignsWithoutNumber.Client;
 using CampaignsWithoutNumber.Shared;
 using CampaignsWithoutNumber.Shared.Entities;
 using CampaignsWithoutNumber.Shared.Managers;
@@ -11,18 +10,14 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MongoDB.Bson.Serialization;
 using Newtonsoft.Json;
-using Syncfusion.Blazor;
 
 namespace CampaignsWithoutNumber.Server;
 
-public static class Program
+public class Program
 {
   private static void ConfigureServices(IServiceCollection services)
   {
-    services.AddControllersWithViews()
-      .AddNewtonsoftJson(options =>
-        options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore
-      );
+    services.AddControllers();
     services.AddRazorPages();
     services.AddSignalR();
     services.AddResponseCompression(opts =>
@@ -32,17 +27,17 @@ public static class Program
     });
     CreateCharacterClasses();
   }
-  
+
   public static void Main(string[] args)
   {
     var builder = WebApplication.CreateBuilder(args);
-    
+
     ConfigureServices(builder.Services);
-    
+
     // Set the default culture of the application
     CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-GB");
     CultureInfo.DefaultThreadCurrentUICulture = new CultureInfo("en-GB");
-    
+
     var app = builder.Build();
 
     // Configure the HTTP request pipeline.

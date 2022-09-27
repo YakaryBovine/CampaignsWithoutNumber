@@ -15,7 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{C973169B-201
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{9A4182F7-AB21-42C1-AD33-8E57B762AA3D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CampaignsWithoutNumber.Server.IntegrationTests", "test\CampaignsWithoutNumber.Server.IntegrationTests\CampaignsWithoutNumber.Server.IntegrationTests.csproj", "{D8BB31C4-BBC4-42CE-BB63-D58C1008EA07}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CampaignsWithoutNumber.IntegrationTests", "test\CampaignsWithoutNumber.IntegrationTests\CampaignsWithoutNumber.IntegrationTests.csproj", "{D8BB31C4-BBC4-42CE-BB63-D58C1008EA07}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

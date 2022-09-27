@@ -6,6 +6,8 @@
         <Nullable>enable</Nullable>
 
         <IsPackable>false</IsPackable>
+
+        <RootNamespace>CampaignsWithoutNumber.Server.IntegrationTests</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
