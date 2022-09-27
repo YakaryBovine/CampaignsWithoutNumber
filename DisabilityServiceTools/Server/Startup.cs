@@ -1,21 +1,34 @@
 ﻿using System;
-using System.Globalization;
 using System.Linq;
 using CampaignsWithoutNumber.Shared;
 using CampaignsWithoutNumber.Shared.Entities;
+using CampaignsWithoutNumber.Shared.Entities.Attributes;
+using CampaignsWithoutNumber.Shared.Entities.Classes;
 using CampaignsWithoutNumber.Shared.Managers;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.ResponseCompression;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MongoDB.Bson.Serialization;
 using Newtonsoft.Json;
+using Syncfusion.Blazor;
 
 namespace CampaignsWithoutNumber.Server;
 
-public class Program
+public class Startup
 {
-  private static void ConfigureServices(IServiceCollection services)
+  public Startup(IConfiguration configuration)
+  {
+    Configuration = configuration;
+  }
+
+  private IConfiguration Configuration { get; }
+
+  // This method gets called by the runtime. Use this method to add services to the container.
+  // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
+  public void ConfigureServices(IServiceCollection services)
   {
     services.AddControllersWithViews()
       .AddNewtonsoftJson(options =>
@@ -23,6 +36,7 @@ public class Program
       );
     services.AddRazorPages();
     services.AddSignalR();
+    services.AddSyncfusionBlazor();
     services.AddResponseCompression(opts =>
     {
       opts.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(
@@ -31,27 +45,10 @@ public class Program
     CreateCharacterClasses();
   }
 
-  public static void Main(string[] args)
+  // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+  public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
   {
-    var builder = WebApplication.CreateBuilder(args);
-
-    ConfigureServices(builder.Services);
-
-    // Set the default culture of the application
-    CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-GB");
-    CultureInfo.DefaultThreadCurrentUICulture = new CultureInfo("en-GB");
-
-    var app = builder.Build();
-
-    // Configure the HTTP request pipeline.
-    if (!app.Environment.IsDevelopment())
-    {
-      app.UseExceptionHandler("/Error");
-      // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-      app.UseHsts();
-    }
-
-    if (builder.Environment.IsDevelopment())
+    if (env.IsDevelopment())
     {
       app.UseDeveloperExceptionPage();
       app.UseWebAssemblyDebugging();
@@ -63,15 +60,15 @@ public class Program
 
     app.UseBlazorFrameworkFiles();
     app.UseStaticFiles();
+
     app.UseRouting();
+
     app.UseEndpoints(endpoints =>
     {
       endpoints.MapRazorPages();
       endpoints.MapControllers();
       endpoints.MapFallbackToFile("index.html");
     });
-
-    app.Run();
   }
 
   private static void CreateCharacterClasses()
@@ -82,18 +79,16 @@ public class Program
     foreach (var characterClassType in characterClassImplementingAttribute)
     {
       BsonClassMap.LookupClassMap(characterClassType);
-      CharacterClassManager.Register((ICharacterClass?)Activator.CreateInstance(characterClassType) ??
-                                     throw new InvalidOperationException());
+      CharacterClassManager.Register((ICharacterClass?)Activator.CreateInstance(characterClassType) ?? throw new InvalidOperationException());
     }
-
+    
     var typesImplementingAttribute = AppDomain.CurrentDomain.GetAssemblies().SelectMany(x => x.GetTypes())
       .Where(mytype =>
         typeof(IAttribute).IsAssignableFrom(mytype) && mytype.GetInterfaces().Contains(typeof(IAttribute)));
     foreach (var attributeType in typesImplementingAttribute)
     {
       BsonClassMap.LookupClassMap(attributeType);
-      AttributeManager.Register((IAttribute?)Activator.CreateInstance(attributeType) ??
-                                throw new InvalidOperationException());
+      AttributeManager.Register((IAttribute?)Activator.CreateInstance(attributeType) ?? throw new InvalidOperationException());
     }
 
     var typesImplementingArt = AppDomain.CurrentDomain.GetAssemblies().SelectMany(x => x.GetTypes())
