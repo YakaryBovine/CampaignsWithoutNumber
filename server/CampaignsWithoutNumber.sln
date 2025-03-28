@@ -7,11 +7,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{C973169B-201
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{9A4182F7-AB21-42C1-AD33-8E57B762AA3D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CampaignsWithoutNumber.Domain", "server\src\CampaignsWithoutNumber.Domain\CampaignsWithoutNumber.Domain.csproj", "{81CEC2E9-D7C2-4F82-8787-878EB47C2AEC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CampaignsWithoutNumber.Domain", "src\CampaignsWithoutNumber.Domain\CampaignsWithoutNumber.Domain.csproj", "{81CEC2E9-D7C2-4F82-8787-878EB47C2AEC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CampaignsWithoutNumber.Web", "server\src\CampaignsWithoutNumber.Web\CampaignsWithoutNumber.Web.csproj", "{E5D41ECA-27D0-4EF4-BBE1-74EECFDFD768}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CampaignsWithoutNumber.Web", "src\CampaignsWithoutNumber.Web\CampaignsWithoutNumber.Web.csproj", "{E5D41ECA-27D0-4EF4-BBE1-74EECFDFD768}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CampaignsWithoutNumber.Infrastructure", "server\src\CampaignsWithoutNumber.Infrastructure\CampaignsWithoutNumber.Infrastructure.csproj", "{931660F6-3953-4379-9EA4-7338F0A4FBEB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CampaignsWithoutNumber.Infrastructure", "src\CampaignsWithoutNumber.Infrastructure\CampaignsWithoutNumber.Infrastructure.csproj", "{931660F6-3953-4379-9EA4-7338F0A4FBEB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
