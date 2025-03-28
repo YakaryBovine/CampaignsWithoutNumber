@@ -1,4 +1,6 @@
 ﻿using CampaignsWithoutNumber.Domain;
+using CampaignsWithoutNumber.Web.DTOs;
+using CampaignsWithoutNumber.Web.Mappers;
 
 namespace CampaignsWithoutNumber.Web.Controllers;
 
@@ -9,7 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 public class CharacterController : ControllerBase
 {
   [HttpGet("{id:guid}")]
-  public ActionResult<Character> GetCharacter(Guid id)
+  public ActionResult<CharacterDto> GetCharacter(Guid id)
   {
     var character = new Character
     {
@@ -22,7 +24,7 @@ public class CharacterController : ControllerBase
         HitPointsPerLevel = 3,
         AttackBonusPerLevel = 3
       }
-    };
+    }.ToDto();
     return Ok(character);
   }
 }
