@@ -1,0 +1,6 @@
+@CampaignsWithoutNumber.Web_HostAddress = http://localhost:5014
+
+GET {{CampaignsWithoutNumber.Web_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
