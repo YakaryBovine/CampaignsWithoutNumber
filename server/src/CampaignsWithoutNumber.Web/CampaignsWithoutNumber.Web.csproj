@@ -13,6 +13,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\CampaignsWithoutNumber.Domain\CampaignsWithoutNumber.Domain.csproj" />
+      <ProjectReference Include="..\CampaignsWithoutNumber.Infrastructure\CampaignsWithoutNumber.Infrastructure.csproj" />
     </ItemGroup>
 
 </Project>

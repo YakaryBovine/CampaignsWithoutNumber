@@ -1,4 +1,4 @@
-﻿using CampaignsWithoutNumber.Domain;
+﻿using CampaignsWithoutNumber.Infrastructure.Repositories;
 using CampaignsWithoutNumber.Web.DTOs;
 using CampaignsWithoutNumber.Web.Mappers;
 
@@ -8,23 +8,15 @@ using Microsoft.AspNetCore.Mvc;
 
 [ApiController]
 [Route("api/[controller]")]
-public class CharacterController : ControllerBase
+public sealed class CharacterController(ICharacterRepository characterRepository) : ControllerBase
 {
   [HttpGet("{id:guid}")]
   public ActionResult<CharacterDto> GetCharacter(Guid id)
   {
-    var character = new Character
-    {
-      Id = id,
-      Name = "Zakary Boven",
-      Level = 7,
-      Class = new GameClass
-      {
-        Name = "Fighter",
-        HitPointsPerLevel = 3,
-        AttackBonusPerLevel = 3
-      }
-    }.ToDto();
+    var character = characterRepository.GetCharacter(id)?.ToDto();
+    if (character == null) 
+      return NotFound();
+
     return Ok(character);
   }
 }
